@@ -4,7 +4,7 @@
 
 ### By: Sam Bassong
 
-###  [Application]() | [Porfolio]() | [GitHub](https://github.com/sbassong) | [LinkedIn](https://www.linkedin.com/in/sambassong/) | [Trello](https://trello.com/b/z62FupYw/mernproject) 
+###  [Porfolio]() | [GitHub](https://github.com/sbassong) | [LinkedIn](https://www.linkedin.com/in/sambassong/)
 ***
 
 ### ***Description***
@@ -22,8 +22,9 @@
 ### ***Getting Started***
 
 #### 
-* As the user, you're the driver! Play around with site and test out the functionality
-* 
+* As the user, you're the driver! Play around with site and test out the functionality. Enjoy!
+* ###  [Application]() 
+* ###  [Trello](https://trello.com/b/z62FupYw/mernproject) 
 ***
 
 ### ***Future Updates***

@@ -1,11 +1,13 @@
 //createEvent
 const createEvent = (req, res) => {
   Event.insertOne(req.params)
-  if (err) {
-    return res.status(500).json({code: 500, message: "Could not create event.", error: err})
-  } else {
-    res.status(200).son({code: 200, message: "Event was created.", createdEvent: event})
-  }
+  .exec((err, event) => {
+    if (err) {
+      return res.status(500).json({code: 500, message: "Could not create event.", error: err})
+    } else {
+      res.status(200).son({code: 200, message: "Event was created.", createdEvent: event})
+    }
+  })
 }
 
 //deleteEvent

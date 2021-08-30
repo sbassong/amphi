@@ -9,6 +9,7 @@ const EventSchema = new Schema({
   date: {type: String, required: true},
   time: {type: String, required: true},
   venue: {type: String, required: true},
+  location: {type: String, required: true},
   ticket_url: {type: String, required: false}
 },{timestamps:true})
 

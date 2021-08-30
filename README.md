@@ -1,4 +1,4 @@
-# Amphi, the musical events database 
+# Amphi, the musical events finder
 
 ## Date: 8/27/2021
 
@@ -8,7 +8,7 @@
 ***
 
 ### ***Description***
-####  Amphi is a fully functional events search application which leverages the MERN stack (MongoDB/Express/React/Node.js) to create an engaging, responsive and intuitive user experience. Amphi features search functionality by date, artists, genre, and location, the ability to add favorite events and redirection to vendor site. This project was implemented with the MERN stack technologies and deployed with Heroku. This is the unit 2 project for the Software Engineering Immersive at General Assembly. 
+####  Amphi is a fully functional events search application which leverages the MERN stack (MongoDB/Express/React/Node.js) to create an engaging, responsive and intuitive user experience. Amphi features search functionality by artist, genre, and location, the ability to add favorite events and redirection to tickets vendor site. This project was implemented with the MERN stack technologies and deployed with Heroku. This is the unit 2 project for the Software Engineering Immersive at General Assembly. 
 ***
 
 ### ***Technologies Used***
@@ -22,9 +22,9 @@
 ### ***Getting Started***
 
 #### 
-* As the user, you're the driver! Play around with site and test out the functionality. Enjoy!
+* As the user, you're the driver! Play around with site and test out the functionality. Hope you find an event you like, Enjoy!
 * ###  [Application]() 
-* ###  [Trello](https://trello.com/b/z62FupYw/mernproject) 
+* ###  [Trello](https://trello.com/b/z62FupYw/amphi) 
 ***
 
 ### ***Future Updates***
@@ -39,7 +39,7 @@
 ##### Amphi homepage
 ![Homepage]()
 
-##### Amphi gameboard
+##### Amphi favorites page
 ![Page]()
 ***
 

@@ -1,4 +1,4 @@
-# MERN_project (placeholder)
+# Amphi, the musical events database 
 
 ## Date: 8/27/2021
 
@@ -8,7 +8,7 @@
 ***
 
 ### ***Description***
-####  MERN_project is a fully functional application which leverages the MERN stack (MongoDB/Express/React/Node.js) to create an engaging, responsive and intuitive user experience. This project was implemented with the tools above deployed with Heroku. This is the unit 2 project for the Software Engineering Immersive at General Assembly. 
+####  Amphi is a fully functional events search application which leverages the MERN stack (MongoDB/Express/React/Node.js) to create an engaging, responsive and intuitive user experience. Amphi features search functionality by date, artists, genre, and location, the ability to add favorite events and redirection to vendor site. This project was implemented with the MERN stack technologies and deployed with Heroku. This is the unit 2 project for the Software Engineering Immersive at General Assembly. 
 ***
 
 ### ***Technologies Used***
@@ -36,15 +36,16 @@
 
 ### ***Screenshots***
 
-##### Journey homepage
+##### Amphi homepage
 ![Homepage]()
 
-##### Journey gameboard
+##### Amphi gameboard
 ![Page]()
 ***
 
 ### ***Credits***
 #### Support and Help: SEI-DRY @ GA
+#### inspiration: Ticketmaster/ticketweb
 #### Pictures: []()
 #### other sources: []()
 

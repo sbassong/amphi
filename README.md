@@ -1,4 +1,4 @@
-# Amphi, the musical events finder
+# Amphi: the music events finder
 
 ## Date: 8/27/2021
 

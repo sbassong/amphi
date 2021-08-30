@@ -4,8 +4,10 @@ const artistsControllers = require('../controllers/artistsControllers')
 
 const AppRouter = Router()
 
-AppRouter.use('/events', eventsControllers)
-AppRouter.use('/artists', artistsControllers)
+AppRouter.use('/events/create/', eventsControllers.createEvent())
+AppRouter.use('/events/delete/:id', eventsControllers.deleteEvent())
+AppRouter.use('/artists/create', artistsControllers.createArtist())
+AppRouter.use('/artists/delete/:id', artistsControllers.deleteArtist())
 
 
 module.exports = AppRouter

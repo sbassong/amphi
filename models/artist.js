@@ -5,7 +5,12 @@ const ArtistSchema = new Schema({
   event_id: {type: Schema.Types.ObjectId, required: true},
   name: {type: String, required: true},
   description: {type: String, required: true},
-  genre: {type: String, required: true}
+  genre: {type: String, required: true},
+  image: {type: String, required: true},
+  events: [{type: Schema.Types.ObjectId, ref: 'events'}]
 },{timestamps:true})
 
-module.exports = mongoose.model('artists', ArtistSchema)
+const Artist = mongoose.model('artists', ArtistSchema)
+module.exports = {
+  Artist
+}

@@ -21,7 +21,7 @@ const CreateArtist = ({onChange, onSubmit, value}) => {
           <h4>Image URL:</h4>
           <input type="text" name="image" value={value} placeholder="Enter artist's image URL" onChange={(e) => onChange(e)}></input>
         </div>
-        <input type="text" name="search" value={value} placeholder="Search Games" onChange={(e) => onChange(e)}></input>
+        
         <button type='submit'>Register Artist</button>
       </form>
     </div>

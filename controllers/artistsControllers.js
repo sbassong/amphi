@@ -1,23 +1,14 @@
-const createArtist = (req, res) => {
-  Artist.insertOne(req.params)
-  .exec((err, artist) => {
-    if (err) {
-      return res.status(500).json({code: 500, message: "Could not create Artist.", error: err})
-    } else {
-      res.status(200).son({code: 200, message: "Artist was created.", createdArtist: artist})
-    }
-  })
-}
+const {Artist} = require('../models/artist')
 
-// const createArtist = async (req, res) => {
-//   try {
-//     const artist = await new Artist(req.body)
-//     await artist.save()
-//     return res.status(200).send(artist)
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
+const createArtist = async (req, res) => {
+  try {
+    const artist = await new Artist(req.body)
+    await artist.save()
+    return res.status(200).send(artist)
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 
 //deleteArtist
@@ -30,7 +21,7 @@ const deleteArtist = (req, res) => {
     if (err) {
       return res.status(500).json({code: 500, message: "Artist could not be deleted.", error: err})
     } else {
-      res.status(200).son({code: 200, message: "Artist was deleted.", deletedArtist: artist})
+      res.status(200).json({code: 200, message: "Artist was deleted.", deletedArtist: artist})
     }
   })
 }

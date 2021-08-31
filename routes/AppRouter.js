@@ -1,12 +1,14 @@
 const { Router } = require('express')
-const eventsRouter = require('../controllers/eventsControllers')
-const artistsRouter = require('../controllers/artistsControllers')
+const eventsControllers = require('../controllers/eventsControllers')
+const artistsControllers = require('../controllers/artistsControllers')
 
 const AppRouter = Router()
 
 
-AppRouter.use('', artistsRouter)
-AppRouter.use('', eventsRouter)
+AppRouter.post('/events', eventsControllers.createEvent)
+
+AppRouter.post('/artists', artistsControllers.createArtist)
+// AppRouter.use('', eventsRouter)
 
 
 module.exports = AppRouter

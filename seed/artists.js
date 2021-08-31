@@ -1,6 +1,7 @@
 const db = require('../db')
 const faker = require('faker')
-const { Artist, Event } = require('../models')
+const { Artist } = require('../models/artist')
+const { Event } = require('../models/event')
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
@@ -38,21 +39,21 @@ const createEvents = async () => {
   console.log('Created and added events to amphiDB!')
 }
 
-const createArtists = async (events) => {
+const createArtists = async () => {
   const artists = [
     {
       name: `Sam Bassong`,
       description: "Sam Bassong is an aspiring rocker just launching his career in the West. His style doesn't ExtensionScriptApis, yet is very varied.",
       genre: "rock",
-      image: faker.internet.avatar(),
-      events: events.map((event) => event.event_id)
+      image: faker.internet.avatar()
+      // events: events.map((event) => event._id)
     },
     {
       name: `The Popstarts`,
       description: "The Popstars recently burst into the pop scene with their pop single: pop.",
       genre: "pop",
-      image: faker.internet.avatar(),
-      events: events.map((event) => event.event_id)
+      image: faker.internet.avatar()
+      // events: events.map((event) => event._id)
     }
   ]
   await Artist.insertMany(artists)
@@ -62,8 +63,8 @@ const createArtists = async (events) => {
 
 
 const run = async () => {
-  const events = await createEvents()
-  await createArtistsWithEvents(events)
+  await createEvents()
+  await createArtists()
   db.close()
 }
 

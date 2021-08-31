@@ -1,15 +1,15 @@
 const mongoose = require('mongoose')
-const { Schema } = mongoose.Schema
+const { Schema } = require('mongoose')
 
 const EventSchema = new Schema({
-  event_id: {type: Schema.Types.ObjectId, required: true},
+  artist_id: {type: Schema.Types.ObjectId, ref: 'artist_id' },
   event_name: {type: String, required: true},
-  genre: {type: String, required: true},
-  artist: {type: String, required: true},
-  date: {type: String, required: true},
-  time: {type: String, required: true},
-  venue: {type: String, required: true},
-  location: {type: String, required: true},
+  genre: {type: String},
+  artist: {type: String},
+  date: {type: String},
+  time: {type: String},
+  venue: {type: String},
+  location: {type: String},
   ticket_url: {type: String, required: false}
 },{timestamps:true})
 

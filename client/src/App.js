@@ -10,8 +10,8 @@ import Homepage from './pages/Homepage.js'
 import EventsList from './pages/EventsList'
 import ArtistsList from './pages/ArtistsList'
 // import Artistpage from './pages/Artistpage'
-// import CreateArtist from './pages/CreateArtist'
-// import CreateEvent from './pages/CreateEvent'
+import CreateArtist from './pages/CreateArtist'
+import CreateEvent from './pages/CreateEvent'
 
 
 const App = () => {
@@ -131,6 +131,8 @@ const App = () => {
           <Route exact path='/' component={() => <Homepage artists={artists}/>} />
           <Route exact path='/events' component={() => <EventsList events={events} />} />
           <Route exact path='/artists' component={() => <ArtistsList artists={artists} />} />
+          <Route exact path='/events/new' component={() => <CreateEvent onChange={handleEventFormChange} onSubmit={handleEventSubmit} value={eventData} />} />
+          <Route exact path='/artists/new' component={() => <ArtistsList onChange={handleArtistFormChange} onSubmit={handleArtistSubmit} value={artistData} />} />
         </Switch>
       </main>
     </div>

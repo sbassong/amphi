@@ -26,9 +26,17 @@ const deleteArtist = (req, res) => {
 }
 
 //getArtists
-
+const getArtists = (req, res) => {
+  try {
+    const artists = await Artist.find()
+    res.send(artists)
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 module.exports = {
   createArtist,
-  deleteArtist
+  deleteArtist,
+  getArtists
 }

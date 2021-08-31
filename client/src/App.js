@@ -22,11 +22,24 @@ const App = () => {
   const getEvents = async() => {
     try {
       const res = await axios.get(`${BASE_URL}/events`)
+      console.log(res.data)
+      setEvents(...events, res.data)
     } catch (error) {
-      
+      console.log(error)
     }
   }
+
   //getArtists
+  const getArtists = async() => {
+    try {
+      const res = await axios.get(`${BASE_URL}/artists`)
+      console.log(res.data)
+      setArtists(...artists, res.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 
   useEffect(() => {
     // getEvents()
@@ -37,9 +50,9 @@ const App = () => {
       <Header />
       <main>
         <Switch>
-          <Route exact path='/' component={() => {<Homepage />}} />
-          <Route exact path='/events' component={() => {<EventsList/>}} />
-          <Route exact path='/artists' component={() => {<ArtistsList />}} />
+          <Route exact path='/' component={() => {<Homepage artists={artists}/>}} />
+          <Route exact path='/events' component={() => {<EventsList events={events}/>}} />
+          <Route exact path='/artists' component={() => {<ArtistsList artists={artists}/>}} />
         </Switch>
       </main>
     </div>

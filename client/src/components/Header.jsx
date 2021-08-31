@@ -12,11 +12,15 @@ const Header = (props) => {
           <NavLink to='/'>Amphi</NavLink>
         </section>
 
-        <section className='right-nav'>
+        <section className='mid-nav'>
           <NavLink to='/events'>Events</NavLink>
           <NavLink to='/artists'>Artists</NavLink>
         </section>
 
+        <section>
+          <NavLink to='/events/new'>Add New Event</NavLink>
+          <NavLink to='/artists/new'>Add New Artist</NavLink>
+        </section>
       </nav>
       <SearchBar /> 
     </header>

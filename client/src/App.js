@@ -80,7 +80,7 @@ const App = () => {
       default:
         break;
     }
-    updateArtistData(values)
+    updateEventData(values)
     // let name = e.target.name
     // let value = e.target.value
     // updateEventData(...eventData, {[name]: value})

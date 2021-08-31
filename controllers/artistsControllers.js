@@ -1,5 +1,6 @@
 const {Artist} = require('../models/artist')
 
+//createArtist
 const createArtist = async (req, res) => {
   try {
     const artist = await new Artist(req.body)
@@ -10,13 +11,11 @@ const createArtist = async (req, res) => {
   }
 }
 
-
 //deleteArtist
-//allows user to delete selected artist using evid
 const deleteArtist = (req, res) => {
-  const {id } = req.params
+  const { _id } = req.params
   Artist.findOneandDelete({
-    event_id: id
+    _id: _id
   }).exec((err, artist) => {
     if (err) {
       return res.status(500).json({code: 500, message: "Artist could not be deleted.", error: err})
@@ -25,6 +24,9 @@ const deleteArtist = (req, res) => {
     }
   })
 }
+
+//getArtists
+
 
 module.exports = {
   createArtist,

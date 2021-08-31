@@ -12,7 +12,5 @@ AppRouter.get('/events', eventsControllers.getEvents)
 AppRouter.post('/artists', artistsControllers.createArtist)
 AppRouter.delete('/artists', artistsControllers.deleteArtist)
 AppRouter.get('/artists', artistsControllers.getArtists)
-// AppRouter.use('', eventsRouter)
-
 
 module.exports = AppRouter

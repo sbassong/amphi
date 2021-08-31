@@ -18,9 +18,8 @@ const Header = (props) => {
         </section>
 
       </nav>
-      <SearchBar onSubmit/>
+      <SearchBar /> 
     </header>
-
   )
 }
 

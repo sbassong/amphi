@@ -2,9 +2,9 @@ import FeaturedCard from '../components/FeaturedCard'
 
 const Homepage = ({artists}) => {
   //randomizer helper function
-  const randomVal = () => {
-    return Math.ceil(Math.random()*artists.length)
-  }
+  // const randomVal = () => {
+  //   return Math.ceil(Math.random()*artists.length)
+  // }
 
 
   return (

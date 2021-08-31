@@ -3,7 +3,7 @@ import React from 'react'
 const Listing = ({image, date, time, venue, location, name, onClick }) => {
   
   return (
-    <div className='Search-bar'>
+    <div className='listing'>
       <img src={image} alt={name} />
       <p>{date}</p> 
       <p>{time}</p>

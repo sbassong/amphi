@@ -12,7 +12,6 @@ const ArtistPage = (props) => {
         ))}
       </div>
     </div>
-      
   )
 }
 

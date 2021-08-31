@@ -1,6 +1,7 @@
 import React from 'react'
 
 const ArtistSection = ({ image, name, events, description }) => {
+  return (
   <div className='artist-section'>
     <div><img src={image} alt="" /></div>
     <div>
@@ -8,7 +9,7 @@ const ArtistSection = ({ image, name, events, description }) => {
       <p>{events.length}</p>
       <p>{description}</p>
     </div>
-  </div>
+  </div>)
 }
 
 export default ArtistSection

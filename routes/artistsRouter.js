@@ -1,5 +1,6 @@
 const { Router } = require('express')
 const artistsControllers = require('../controllers/artistsControllers')
+const router = Router()
 
-Router.post('/artists/create', artistsControllers.createArtist())
-Router.delete('/artists/delete/:id', artistsControllers.deleteArtist())
+router.post('/artists/create', artistsControllers.createArtist)
+router.delete('/artists/delete/:id', artistsControllers.deleteArtist)

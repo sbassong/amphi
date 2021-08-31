@@ -1,5 +1,6 @@
 const { Router } = require('express')
 const eventsControllers = require('../controllers/eventsControllers')
+const router = Router()
 
-Router.post('/events/create/', eventsControllers.createEvent() )
-Router.delete('/events/delete/:id', eventsControllers.deleteEvent())
+router.post('/events/create/', eventsControllers.createEvent)
+router.delete('/events/delete/:id', eventsControllers.deleteEvent)

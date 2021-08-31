@@ -32,7 +32,7 @@ const deleteArtist = (req, res) => {
 }
 
 //getArtists
-const getArtists = (req, res) => {
+const getArtists = async (req, res) => {
   try {
     const artists = await Artist.find()
     res.send(artists)

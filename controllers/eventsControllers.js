@@ -32,7 +32,7 @@ const deleteEvent = (req, res) => {
 }
 
 //getEvents
-const getEvents = (req, res) => {
+const getEvents = async (req, res) => {
   try {
     const events = await Event.find()
     res.send(events)

@@ -21,10 +21,28 @@ const App = () => {
   const [artistData, updateArtistData] = useState({})
 
   //handleChange for artist
-  const handleArtistFormChange = (e) => {
-    let name = e.target.name
-    let value = e.target.value
-    updateArtistData(...artistData, {[name]: value})
+  const handleArtistFormChange = (index, e) => {
+    const values = [...artistData]
+    switch (e.target.name) {
+      case 'name':
+        values[index].name = e.target.value;
+        break;
+      case 'description':
+        values[index].description = e.target.value;
+        break;
+      case 'image':
+        values[index].image = e.target.value;
+        break;
+      case 'genre':
+        values[index].genre = e.target.value;
+        break;
+      default:
+        break;
+    }
+    updateArtistData(values)
+    // let name = e.target.name
+    // let value = e.target.value
+    // updateArtistData(...artistData, {[name]: value})
   }
   //handleSubmit for artist
   const handleArtistSubmit = async (e) => {
@@ -35,15 +53,42 @@ const App = () => {
   }
 
   //handleChange for event
-  const handleEventFormChange = (e) => {
-    let name = e.target.name
-    let value = e.target.value
-    updateArtistData(...artistData, {[name]: value})
+  const handleEventFormChange = (index, e) => {
+    const values = [...eventData]
+    switch (e.target.name) {
+      case 'event_name':
+        values[index].event_name = e.target.value;
+        break;
+      case 'artist':
+        values[index].artist = e.target.value;
+        break;
+      case 'date':
+        values[index].date = e.target.value;
+        break;
+      case 'genre':
+        values[index].genre = e.target.value;
+        break;
+      case 'location':
+        values[index].location = e.target.value;
+        break;
+      case 'time':
+        values[index].time = e.target.value;
+        break;
+      case 'venue':
+        values[index].venue = e.target.value;
+        break;
+      default:
+        break;
+    }
+    updateArtistData(values)
+    // let name = e.target.name
+    // let value = e.target.value
+    // updateEventData(...eventData, {[name]: value})
   }
   //handleSubmit for event
   const handleEventSubmit = async (e) => {
     e.preventDefault()
-    const data = await axios.post(`${BASE_URL}/event/new`, eventData)
+    const data = await axios.post(`${BASE_URL}/events/new`, eventData)
     //something else happens here?
     updateEventData({})
   }

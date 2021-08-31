@@ -47,8 +47,16 @@ const App = () => {
   //handleSubmit for artist
   const handleArtistSubmit = async (e) => {
     e.preventDefault()
-    const data = await axios.post(`${BASE_URL}/artists/new`, artistData)
-    //something else happens here?
+    axios.post(`${BASE_URL}/artists/new`, artistData)
+    .then(function (res) {
+      // console.log(res)
+      const newArtist = res.data.results
+      // console.log(newPost)
+      setEvents([newArtist, ...artists])
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
     updateArtistData({})
   }
 
@@ -88,8 +96,16 @@ const App = () => {
   //handleSubmit for event
   const handleEventSubmit = async (e) => {
     e.preventDefault()
-    const data = await axios.post(`${BASE_URL}/events/new`, eventData)
-    //something else happens here?
+    axios.post(`${BASE_URL}/events/new`, eventData)
+    .then(function (res) {
+      // console.log(res)
+      const newEvent = res.data.results
+      // console.log(newPost)
+      setEvents([newEvent, ...events])
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
     updateEventData({})
   }
 
@@ -100,7 +116,7 @@ const App = () => {
     try {
       const res = await axios.get(`${BASE_URL}/events`)
       console.log(res.data)
-      setEvents(...events, res.data)
+      setEvents([...events, res.data])
     } catch (error) {
       console.log(error)
     }
@@ -111,7 +127,7 @@ const App = () => {
     try {
       const res = await axios.get(`${BASE_URL}/artists`)
       console.log(res.data)
-      setArtists(...artists, res.data)
+      setArtists([...artists, res.data])
     } catch (error) {
       console.log(error)
     }
@@ -132,7 +148,7 @@ const App = () => {
           <Route exact path='/events' component={() => <EventsList events={events} />} />
           <Route exact path='/artists' component={() => <ArtistsList artists={artists} />} />
           <Route exact path='/events/new' component={() => <CreateEvent onChange={handleEventFormChange} onSubmit={handleEventSubmit} value={eventData} />} />
-          <Route exact path='/artists/new' component={() => <ArtistsList onChange={handleArtistFormChange} onSubmit={handleArtistSubmit} value={artistData} />} />
+          <Route exact path='/artists/new' component={() => <CreateArtist onChange={handleArtistFormChange} onSubmit={handleArtistSubmit} value={artistData} />} />
         </Switch>
       </main>
     </div>

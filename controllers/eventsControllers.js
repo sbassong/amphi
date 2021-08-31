@@ -10,6 +10,16 @@ const createEvent = (req, res) => {
   })
 }
 
+// const createEvent = async (req, res) => {
+//   try {
+//     const event = await new Event(req.body)
+//     await event.save()
+//     return res.status(200).send(event)
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }
+
 //deleteEvent
 //allows user to delete selected event using event_id
 const deleteEvent = (req, res) => {

@@ -9,6 +9,17 @@ const createArtist = (req, res) => {
   })
 }
 
+// const createArtist = async (req, res) => {
+//   try {
+//     const artist = await new Artist(req.body)
+//     await artist.save()
+//     return res.status(200).send(artist)
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }
+
+
 //deleteArtist
 //allows user to delete selected artist using evid
 const deleteArtist = (req, res) => {

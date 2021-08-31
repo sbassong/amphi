@@ -10,7 +10,7 @@ const EventSchema = new Schema({
   time: {type: String},
   venue: {type: String},
   location: {type: String},
-  ticket_url: {type: String, required: false}
+  ticket_url: {type: String}
 },{timestamps:true})
 
 const Event = mongoose.model('events', EventSchema)

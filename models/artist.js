@@ -5,8 +5,7 @@ const ArtistSchema = new Schema({
   name: {type: String, required: true},
   description: {type: String},
   genre: {type: String},
-  image: {type: String},
-  // events: [{type: Schema.Types.ObjectId, ref: 'events'}]
+  image: {type: String}
 },{timestamps:true})
 
 const Artist = mongoose.model('artists', ArtistSchema)

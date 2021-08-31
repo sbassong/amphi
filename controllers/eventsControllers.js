@@ -11,19 +11,6 @@ const createEvent = async (req, res) => {
   }
 }
 
-//deleteEvent
-// const deleteEvent = (req, res) => {
-//   const { _id } = req.params
-//   Event.findOneAndDelete({
-//     _id: _id
-//   }).exec((err, event) => {
-//     if (err) {
-//       return res.status(500).json({code: 500, message: "Event could not be deleted.", error: err})
-//     } else {
-//       res.status(200).json({code: 200, message: "Event was deleted.", deletedEvent: event})
-//     }
-//   })
-// }
 const deleteEvent = (req, res) => {
   Event.deleteOne({_id: req.params.id}, (err) => {
     if (err) console.log(err)

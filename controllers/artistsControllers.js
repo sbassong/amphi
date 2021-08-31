@@ -11,19 +11,6 @@ const createArtist = async (req, res) => {
   }
 }
 
-//deleteArtist
-// const deleteArtist = (req, res) => {
-//   const { _id } = req.params
-//   Artist.findOneandDelete({
-//     _id: _id
-//   }).exec((err, artist) => {
-//     if (err) {
-//       return res.status(500).json({code: 500, message: "Artist could not be deleted.", error: err})
-//     } else {
-//       res.status(200).json({code: 200, message: "Artist was deleted.", deletedArtist: artist})
-//     }
-//   })
-// }
 const deleteArtist = (req, res) => {
   Artist.deleteOne({_id: req.params.id}, (err) => {
     if (err) console.log(err)

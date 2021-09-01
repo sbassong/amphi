@@ -33,13 +33,13 @@ const ArtistPage = ({artist}) => {
   useEffect(() => {
     getArtistById(artist._id)
     getEventsByArtistName(selectedArtist.name)
-  }, [artist._id, selectedArtist.name])
+  }, [])
 
   return (
     <div>
       <ArtistSection image={selectedArtist.image} name={selectedArtist.name} description={selectedArtist.description}/>
       <div>
-        {artistEvents.map(event => (
+        {artistEvents !== [] && artistEvents.map(event => (
           <Listing key={event.event_id} id={event._id} name={event.name} venue={event.venue} date={event.date} time={event.time} location={event.location} />
         ))}
       </div>

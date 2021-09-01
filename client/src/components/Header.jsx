@@ -17,7 +17,7 @@ const Header = (props) => {
           <NavLink to='/artists'>Artists</NavLink>
         </section>
 
-        <section>
+        <section className='right-nav'>
           <NavLink to='/events/new'>Add New Event</NavLink>
           <NavLink to='/artists/new'>Add New Artist</NavLink>
         </section>

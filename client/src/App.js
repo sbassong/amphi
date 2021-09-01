@@ -9,7 +9,7 @@ import Header from './components/Header'
 import Homepage from './pages/Homepage.js'
 import EventsList from './pages/EventsList'
 import ArtistsList from './pages/ArtistsList'
-// import Artistpage from './pages/Artistpage'
+import ArtistPage from './pages/ArtistPage'
 import CreateArtist from './pages/CreateArtist'
 import CreateEvent from './pages/CreateEvent'
 
@@ -22,7 +22,6 @@ const App = () => {
   const getEvents = async() => {
     try {
       const res = await axios.get(`${BASE_URL}/events`)
-      console.log(res.data)
       setEvents(res.data)
     } catch (error) {
       console.log(error)
@@ -33,12 +32,12 @@ const App = () => {
   const getArtists = async() => {
     try {
       const res = await axios.get(`${BASE_URL}/artists`)
-      console.log(res.data)
       setArtists(res.data)
     } catch (error) {
       console.log(error)
     }
   }
+
 
   useEffect(() => {
     getEvents()
@@ -55,6 +54,11 @@ const App = () => {
           <Route exact path='/artists' component={() => <ArtistsList artists={artists} />} />
           <Route exact path='/events/new' component={() => <CreateEvent />} />
           <Route exact path='/artists/new' component={() => <CreateArtist />} />
+          {
+            artists.map(artist => (
+              <Route path={`/artists/artistId`} component={() => <ArtistPage artist={artist}/>} />
+            )
+            )}
         </Switch>
       </main>
     </div>

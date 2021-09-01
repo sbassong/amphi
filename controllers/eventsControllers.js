@@ -28,8 +28,19 @@ const getEvents = async (req, res) => {
   }
 }
 
+//getEventsByArtistName
+const getEventsByArtistName = async (req, res) => {
+  try {
+    const events = await Event.find({artist: req.params.artist})
+    res.send(events)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 module.exports = {
   createEvent,
   deleteEvent,
-  getEvents
+  getEvents,
+  getEventsByArtistName
 }

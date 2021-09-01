@@ -11,6 +11,7 @@ const createArtist = async (req, res) => {
   }
 }
 
+//deleteArtist by id
 const deleteArtist = (req, res) => {
   Artist.deleteOne({_id: req.params.id}, (err) => {
     if (err) console.log(err)
@@ -28,8 +29,19 @@ const getArtists = async (req, res) => {
   }
 }
 
+//getArtistById
+const getArtistById = async (req, res) => {
+  try {
+    const artist = await Artist.findOne({_id: req.params.id})
+    res.send(artist)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 module.exports = {
   createArtist,
   deleteArtist,
-  getArtists
+  getArtists,
+  getArtistById
 }

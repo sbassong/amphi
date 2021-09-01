@@ -18,47 +18,7 @@ const App = () => {
   const [artists, setArtists] = useState([])
   const [events, setEvents] = useState([])
   const [eventData, updateEventData] = useState({})
-  const [artistData, updateArtistData] = useState({})
 
-  //handleChange for artist
-  const handleArtistFormChange = (index, e) => {
-    const values = [...artistData]
-    switch (e.target.name) {
-      case 'name':
-        values[index].name = e.target.value;
-        break;
-      case 'description':
-        values[index].description = e.target.value;
-        break;
-      case 'image':
-        values[index].image = e.target.value;
-        break;
-      case 'genre':
-        values[index].genre = e.target.value;
-        break;
-      default:
-        break;
-    }
-    updateArtistData(values)
-    // let name = e.target.name
-    // let value = e.target.value
-    // updateArtistData(...artistData, {[name]: value})
-  }
-  //handleSubmit for artist
-  const handleArtistSubmit = async (e) => {
-    e.preventDefault()
-    axios.post(`${BASE_URL}/artists/new`, artistData)
-    .then(function (res) {
-      // console.log(res)
-      const newArtist = res.data.results
-      // console.log(newArtist)
-      setArtists([newArtist, ...artists])
-    })
-    .catch(function (error) {
-      console.log(error)
-    })
-    updateArtistData({})
-  }
 
   //handleChange for event
   const handleEventFormChange = (index, e) => {
@@ -148,7 +108,7 @@ const App = () => {
           <Route exact path='/events' component={() => <EventsList events={events} />} />
           <Route exact path='/artists' component={() => <ArtistsList artists={artists} />} />
           <Route exact path='/events/new' component={() => <CreateEvent onChange={handleEventFormChange} onSubmit={handleEventSubmit} values={eventData} />} />
-          <Route exact path='/artists/new' component={() => <CreateArtist onChange={handleArtistFormChange} onSubmit={handleArtistSubmit} values={artistData} />} />
+          <Route exact path='/artists/new' component={() => <CreateArtist />} />
         </Switch>
       </main>
     </div>

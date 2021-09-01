@@ -1,33 +1,60 @@
-import React, { Fragment } from 'react'
+import React, { useState } from 'react'
+import axios from 'axios'
+import { BASE_URL } from '../globals'
 
-const CreateArtist = ({onChange, onSubmit, values}) => {
+const CreateArtist = () => {
+  const [artists, setArtists] = useState([])
+
+  const [name, updateName] = useState('')
+  const [genre, updateGenre] = useState('')
+  const [description, updateDescription] = useState('')
+  const [image, updateImage] = useState('')
+
+  //handleSubmit for artist
+  const handleArtistSubmit = async (e) => {
+    e.preventDefault()
+    const newArtistData = {
+      name: name,
+      genre: genre,
+      description: description,
+      image: image
+    }
+
+    axios.post(`${BASE_URL}/artists/new`, newArtistData)
+    .then(function (res) {
+      const newArtist = res.data.results
+      setArtists([newArtist, ...artists])
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
+  }
+
+
 
   return (
     <div>
-      <form className='artist-form' onSubmit={(e) => onSubmit(e)}>
-        {values.map((value, index) => (
-        <Fragment key={`${value}~${index}`}>
+      <form className='artist-form' onSubmit={(e) => handleArtistSubmit(e)}>
+        
           <div>
             <h4>Name:</h4>
-            <input type="text" value={value.name} name="name"  placeholder="Enter artist's name" onChange={(e) => onChange(index, e)}></input>
+            <input type="text"  name="name"  placeholder="Enter artist's name" onChange={(e) => updateName(e.target.value)}></input>
           </div>
 
           <div>
             <h4>Genre:</h4>
-            <input type="text" value={value.genre} name="genre" placeholder="Enter artist's genre" onChange={(e) => onChange(index, e)}></input>
+            <input type="text"  name="genre" placeholder="Enter artist's genre" onChange={(e) => updateGenre(e.target.value)}></input>
           </div>
 
           <div>
             <h4>Description:</h4>
-            <input type="text" value={value.description} name="description" placeholder="Enter a short summary about artist" onChange={(e) => onChange(index, e)}></input>
+            <input type="text" name="description" placeholder="Enter a short summary about artist" onChange={(e) => updateDescription(e.target.value)}></input>
           </div>
 
           <div>
             <h4>Image URL:</h4>
-            <input type="text" value={value.image} name="image" placeholder="Enter artist's image URL" onChange={(e) => onChange(index, e)}></input>
+            <input type="text" name="image" placeholder="Enter artist's image URL" onChange={(e) => updateImage(e.target.value)}></input>
           </div>
-        </Fragment>
-          ))}
       
         <button type='submit'>Register Artist</button>
 

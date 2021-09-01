@@ -4,7 +4,7 @@ const Listing = ({image, date, time, venue, location, name, onClick }) => {
   
   return (
     <div className='listing'>
-      <img src={image} alt={name} />
+      {/* <img src={image} alt={name} /> */}
       <p>{date}</p> 
       <p>{time}</p>
       <h3>{name}</h3>

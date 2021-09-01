@@ -51,8 +51,8 @@ const App = () => {
     .then(function (res) {
       // console.log(res)
       const newArtist = res.data.results
-      // console.log(newPost)
-      setEvents([newArtist, ...artists])
+      // console.log(newArtist)
+      setArtists([newArtist, ...artists])
     })
     .catch(function (error) {
       console.log(error)
@@ -100,7 +100,7 @@ const App = () => {
     .then(function (res) {
       // console.log(res)
       const newEvent = res.data.results
-      // console.log(newPost)
+      // console.log(newEvent)
       setEvents([newEvent, ...events])
     })
     .catch(function (error) {
@@ -116,7 +116,7 @@ const App = () => {
     try {
       const res = await axios.get(`${BASE_URL}/events`)
       console.log(res.data)
-      setEvents([...events, res.data])
+      setEvents(res.data)
     } catch (error) {
       console.log(error)
     }
@@ -127,7 +127,7 @@ const App = () => {
     try {
       const res = await axios.get(`${BASE_URL}/artists`)
       console.log(res.data)
-      setArtists([...artists, res.data])
+      setArtists(res.data)
     } catch (error) {
       console.log(error)
     }
@@ -147,8 +147,8 @@ const App = () => {
           <Route exact path='/' component={() => <Homepage artists={artists}/>} />
           <Route exact path='/events' component={() => <EventsList events={events} />} />
           <Route exact path='/artists' component={() => <ArtistsList artists={artists} />} />
-          <Route exact path='/events/new' component={() => <CreateEvent onChange={handleEventFormChange} onSubmit={handleEventSubmit} value={eventData} />} />
-          <Route exact path='/artists/new' component={() => <CreateArtist onChange={handleArtistFormChange} onSubmit={handleArtistSubmit} value={artistData} />} />
+          <Route exact path='/events/new' component={() => <CreateEvent onChange={handleEventFormChange} onSubmit={handleEventSubmit} values={eventData} />} />
+          <Route exact path='/artists/new' component={() => <CreateArtist onChange={handleArtistFormChange} onSubmit={handleArtistSubmit} values={artistData} />} />
         </Switch>
       </main>
     </div>

@@ -16,6 +16,7 @@ const CreateEvent = () => {
   //handleSubmit for event
   const handleEventSubmit = (e) => {
     e.preventDefault()
+    
     const newEventData = {
       event_name: event_name,
       genre: genre,
@@ -69,6 +70,8 @@ const CreateEvent = () => {
         </div>
         
         <button type='submit'>Register Event</button>
+
+        
       </form>
     </div>
   )

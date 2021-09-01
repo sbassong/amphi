@@ -11,7 +11,7 @@ const CreateArtist = () => {
   const [image, updateImage] = useState('')
 
   //handleSubmit for artist
-  const handleArtistSubmit = async (e) => {
+  const handleArtistSubmit = (e) => {
     e.preventDefault()
     const newArtistData = {
       name: name,

@@ -17,60 +17,7 @@ import CreateEvent from './pages/CreateEvent'
 const App = () => {
   const [artists, setArtists] = useState([])
   const [events, setEvents] = useState([])
-  const [eventData, updateEventData] = useState({})
 
-
-  //handleChange for event
-  const handleEventFormChange = (index, e) => {
-    const values = [...eventData]
-    switch (e.target.name) {
-      case 'event_name':
-        values[index].event_name = e.target.value;
-        break;
-      case 'artist':
-        values[index].artist = e.target.value;
-        break;
-      case 'date':
-        values[index].date = e.target.value;
-        break;
-      case 'genre':
-        values[index].genre = e.target.value;
-        break;
-      case 'location':
-        values[index].location = e.target.value;
-        break;
-      case 'time':
-        values[index].time = e.target.value;
-        break;
-      case 'venue':
-        values[index].venue = e.target.value;
-        break;
-      default:
-        break;
-    }
-    updateEventData(values)
-    // let name = e.target.name
-    // let value = e.target.value
-    // updateEventData(...eventData, {[name]: value})
-  }
-  //handleSubmit for event
-  const handleEventSubmit = async (e) => {
-    e.preventDefault()
-    axios.post(`${BASE_URL}/events/new`, eventData)
-    .then(function (res) {
-      // console.log(res)
-      const newEvent = res.data.results
-      // console.log(newEvent)
-      setEvents([newEvent, ...events])
-    })
-    .catch(function (error) {
-      console.log(error)
-    })
-    updateEventData({})
-  }
-
-
-  //Events functionality
   //getEvents
   const getEvents = async() => {
     try {
@@ -93,7 +40,6 @@ const App = () => {
     }
   }
 
-
   useEffect(() => {
     getEvents()
     getArtists()
@@ -107,7 +53,7 @@ const App = () => {
           <Route exact path='/' component={() => <Homepage artists={artists}/>} />
           <Route exact path='/events' component={() => <EventsList events={events} />} />
           <Route exact path='/artists' component={() => <ArtistsList artists={artists} />} />
-          <Route exact path='/events/new' component={() => <CreateEvent onChange={handleEventFormChange} onSubmit={handleEventSubmit} values={eventData} />} />
+          <Route exact path='/events/new' component={() => <CreateEvent />} />
           <Route exact path='/artists/new' component={() => <CreateArtist />} />
         </Switch>
       </main>

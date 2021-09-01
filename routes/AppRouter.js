@@ -15,5 +15,6 @@ AppRouter.post('/artists/new', artistsControllers.createArtist)
 AppRouter.delete('/artists/:id', artistsControllers.deleteArtist)
 AppRouter.get('/artists', artistsControllers.getArtists)
 AppRouter.get('/artists/:id', artistsControllers.getArtistById)
+AppRouter.get('/artists/search/:artist', artistsControllers.getArtistByName)
 
 module.exports = AppRouter

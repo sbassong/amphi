@@ -39,9 +39,21 @@ const getArtistById = async (req, res) => {
   }
 }
 
+//getArtistsByName
+const getArtistByName = async (req, res) => {
+  try {
+    const artists = await Artist.find({name: req.params.name})
+    res.send(artists)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
 module.exports = {
   createArtist,
   deleteArtist,
   getArtists,
-  getArtistById
+  getArtistById,
+  getArtistByName
 }

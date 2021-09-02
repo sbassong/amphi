@@ -1,6 +1,6 @@
 const {Item} = require('../models/item')
 
-//createEvent
+//addItem
 const addItem = async (req, res) => {
   try {
     const item = await new Item(req.body)
@@ -11,6 +11,7 @@ const addItem = async (req, res) => {
   }
 }
 
+//deleteItem
 const deleteItem = (req, res) => {
   Item.deleteOne({_id: req.params.id}, (err) => {
     if (err) console.log(err)
@@ -18,7 +19,18 @@ const deleteItem = (req, res) => {
   })
 }
 
+//getItems
+const getItems = async (req, res) => {
+  try {
+    const items = await Item.find()
+    res.send(items)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 module.exports = {
   addItem,
-  deleteItem
+  deleteItem,
+  getItems
 }

@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 const { Schema } = require('mongoose')
 
 const ItemSchema = new Schema({
-  artist_id: {type: Schema.Types.ObjectId, ref: 'artist_id' },
   event_name: {type: String, required: true},
   genre: {type: String},
   artist: {type: String},

@@ -2,12 +2,23 @@ import React from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 
-const Listing = ({id, date, time, venue, location, name, onClick }) => {
+const Listing = ({ artist, date, time, venue, location, name }) => {
 
-  const deleteListing = (id) => {
-    axios.delete(`${BASE_URL}/events/${id}`)
-    .then(res => console.log(res.data))
-    window.location.reload()
+  const addToCart = () => {
+    const newItemData = {
+      event_name: name,
+      date: date,
+      time: time,
+      venue: venue,
+      location: location,
+      artist: artist
+    }
+    
+    try {
+      axios.post(`${BASE_URL}/cart/new`, newItemData)
+    } catch (error) {
+      console.log(error)
+    }
   }
   
   return (
@@ -19,8 +30,7 @@ const Listing = ({id, date, time, venue, location, name, onClick }) => {
         <p>{venue}</p>
         <p>{location}</p>
       </section>
-      <button onClick className='tickets-button'>Find Tickets</button>
-      <button onClick={() => deleteListing(id)} className='delete-button'>Delete</button>
+      <button onClick={() => addToCart()} className='delete-button'>Add To Cart</button>
     </div>
   )
 }

@@ -20,5 +20,6 @@ AppRouter.get('/artists/search/:name', artistsControllers.getArtistByName)
 
 AppRouter.post('/cart/new', itemsControllers.addItem)
 AppRouter.delete('/cart/:id', itemsControllers.deleteItem)
+AppRouter.get('/cart', itemsControllers.getItems)
 
 module.exports = AppRouter

@@ -13,13 +13,16 @@ import ArtistPage from './pages/ArtistPage'
 import CreateArtist from './pages/CreateArtist'
 import CreateEvent from './pages/CreateEvent'
 import SearchResults from './pages/SearchResults'
+import Cart from './pages/Cart';
 
 
 const App = () => {
+  const history = useHistory()
   const [artists, setArtists] = useState([])
   const [events, setEvents] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
   const [searchResults, setSearchResults] = useState([])
+  const [cartItems, updateCart] = useState([])
 
   //getEvents
   const getEvents = async() => {
@@ -40,9 +43,19 @@ const App = () => {
     }
   }
 
-    const history = useHistory()
+  //getItems
+  const getItems = async() => {
+    try {
+      const res = await axios.get(`${BASE_URL}/cart`)
+      updateCart(res.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 
   useEffect(() => {
+    getItems()
     getEvents()
     getArtists()
   }, [])
@@ -71,6 +84,7 @@ const App = () => {
           <Route exact path='/' component={() => <Homepage artists={artists}/>} />
           <Route exact path='/events' component={() => <EventsList events={events} />} />
           <Route exact path='/artists' component={() => <ArtistsList artists={artists} />} />
+          <Route exact path='/cart' component={() => <Cart cartItems={cartItems} />} />
           <Route exact path='/events/new' component={() => <CreateEvent />} />
           <Route exact path='/artists/new' component={() => <CreateArtist />} />
           <Route exact path='/artists/search_results' component={() => <SearchResults searchResults={searchResults} />} />

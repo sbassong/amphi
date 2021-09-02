@@ -39,22 +39,22 @@ const CreateArtist = () => {
     <div>
       <form className='artist-form' onSubmit={(e) => handleArtistSubmit(e)}>
         <div>
-          <h4>Name:</h4>
+          <label>Name:</label>
           <input type="text"  name="name"  placeholder="Enter artist's name" onChange={(e) => updateName(e.target.value)}></input>
         </div>
 
         <div>
-          <h4>Genre:</h4>
+          <label>Genre:</label>
           <input type="text"  name="genre" placeholder="Enter artist's genre" onChange={(e) => updateGenre(e.target.value)}></input>
         </div>
 
         <div>
-          <h4>Description:</h4>
+          <label>Description:</label>
           <input type="text" name="description" placeholder="Enter a short summary about artist" onChange={(e) => updateDescription(e.target.value)}></input>
         </div>
 
         <div>
-          <h4>Image URL:</h4>
+          <label>Image URL:</label>
           <input type="text" name="image" placeholder="Enter artist's image URL" onChange={(e) => updateImage(e.target.value)}></input>
         </div>
       

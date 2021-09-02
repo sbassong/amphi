@@ -1,0 +1,10 @@
+* .App {
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  margin: 2px;
+}

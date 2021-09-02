@@ -44,38 +44,38 @@ const CreateEvent = () => {
     <div>
       <form className='artist-form' onSubmit={(e) => handleEventSubmit(e)}>
         <div>
-          <h4>Name:</h4>
+          <label>Name:</label>
           <input type="text" name="event_name" placeholder="Enter event's name" onChange={(e) => updateName(e.target.value)}></input>
         </div>
 
         <div>
-          <h4>Genre:</h4>
+          <label>Genre:</label>
           <input type="text" name="genre" placeholder="Enter event's genre" onChange={(e) => updateGenre(e.target.value)}></input>
         </div>
 
         <div>
-          <h4>Artist:</h4>
+          <label>Artist:</label>
           <input type="text" name="artist" placeholder="Enter artist's name" onChange={(e) => updateArtist(e.target.value)}></input>
         </div>
 
         <div>
-          <h4>Date:</h4>
-          <input type="text" name="date" placeholder="Enter event's date" onChange={(e) => updateDate(e.target.value)}></input>
+          <label>Date:</label>
+          <input type="text" name="date" placeholder="Enter event's date. ex: January 1st, 2022" onChange={(e) => updateDate(e.target.value)}></input>
         </div>
 
         <div>
-          <h4>Time:</h4>
-          <input type="text" name="time" placeholder="Enter event's start time" onChange={(e) => updateTime(e.target.value)}></input>
+          <label>Time:</label>
+          <input type="text" name="time" placeholder="Enter event's start time. ex: 7:00PM" onChange={(e) => updateTime(e.target.value)}></input>
         </div>
 
         <div>
-          <h4>Venue:</h4>
+          <label>Venue:</label>
           <input type="text" name="venue" placeholder="Enter venue's name" onChange={(e) => updateVenue(e.target.value)}></input>
         </div>
 
         <div>
-          <h4>Location:</h4>
-          <input type="text" name="location" placeholder="Enter venue's location" onChange={(e) => updateLocation(e.target.value)}></input>
+          <label>Location:</label>
+          <input type="text" name="location" placeholder="Enter venue's location. ex: Seattle, WA" onChange={(e) => updateLocation(e.target.value)}></input>
         </div>
         
         <button type='submit'>Register Event</button>

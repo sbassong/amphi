@@ -1,7 +1,6 @@
 import ArtistCard from '../components/ArtistCard'
 
 const ArtistsList = ({artists}) => {
-
   return (
     <div>
       {artists.map(artist => (

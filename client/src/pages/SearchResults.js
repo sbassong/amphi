@@ -2,7 +2,6 @@ import React from 'react'
 import ArtistCard from '../components/ArtistCard'
 
 const SearchResults = ({searchResults}) => {
-  
   return (
     <div>
       <section>

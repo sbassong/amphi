@@ -1,27 +1,32 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import SearchBar from './SearchBar'
+import { Tabset, Tab, ButtonGroup, ButtonIcon } from 'react-rainbow-components'
 
 const Header = ({onChange, onSubmit, value}) => {
 
   return (
     <header>
-      <nav className="nav-bar">
-
+        <nav className="nav-bar">
         <section className='left-nav'>
           <NavLink to='/'>Amphi</NavLink>
         </section>
 
         <section className='mid-nav'>
-          <NavLink to='/events'>Events</NavLink>
-          <NavLink to='/artists'>Artists</NavLink>
+        <Tabset>
+          <NavLink to='/events'><Tab label='Events'></Tab></NavLink>
+          <NavLink to='/artists'><Tab label="Artists"></Tab></NavLink>
+        </Tabset>
         </section>
 
         <section className='right-nav'>
-          <NavLink to='/events/new'>Add New Event</NavLink>
-          <NavLink to='/artists/new'>Add New Artist</NavLink>
+        <Tabset>
+          <NavLink to='/events/new'><Tab label='Add New Event'></Tab></NavLink>
+          <NavLink to='/artists/new'><Tab label='Add New Artist'></Tab></NavLink>
+        </Tabset>
         </section>
       </nav>
+      
       <SearchBar onChange={onChange} onSubmit={onSubmit} value={value}/> 
       
     </header>

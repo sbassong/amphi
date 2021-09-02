@@ -26,7 +26,7 @@ const ArtistPage = ({artist}) => {
       <ArtistSection image={artist.image} name={artist.name} description={artist.description}/>
       <div>
         {artistEvents !== [] && artistEvents.map(event => (
-          <Listing key={event.event_id} id={event._id} name={event.name} venue={event.venue} date={event.date} time={event.time} location={event.location} />
+          <Listing key={event.event_id} id={event._id} name={event.event_name} venue={event.venue} date={event.date} time={event.time} location={event.location} />
         ))}
       </div>
     </div>

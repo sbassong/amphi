@@ -12,15 +12,16 @@ const ArtistPage = ({artist}) => {
   const getArtistById = async (id) => {
     try {
       const res = await axios.get(`${BASE_URL}/artists/${id}`)
-      console.log(res.data)
+      console.log(res)
       updateArtist(res.data)
+      console.log(selectedArtist)
     } catch (error) {
       console.log(error)
     }
   }
-
+  // console.log(artist)
   //getEventByArtistName
-    const getEventsByArtistName = async (artistName) => {
+  const getEventsByArtistName = async (artistName) => {
     try {
       const res = await axios.get(`${BASE_URL}/artists/id/${artistName}`)
       console.log(res.data)
@@ -29,14 +30,15 @@ const ArtistPage = ({artist}) => {
       console.log(error)
     }
   }
-
+  
   useEffect(() => {
     getArtistById(artist._id)
-    getEventsByArtistName(selectedArtist.name)
+    getEventsByArtistName(artist.name)
   }, [])
 
   return (
     <div>
+      <p>hi</p>
       <ArtistSection image={selectedArtist.image} name={selectedArtist.name} description={selectedArtist.description}/>
       <div>
         {artistEvents !== [] && artistEvents.map(event => (

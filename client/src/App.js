@@ -54,9 +54,7 @@ const App = () => {
       const res = await axios.get(`${BASE_URL}/artists/search/${searchQuery}`)
       setSearchResults(res.data)
       setSearchQuery('')
-
       history.push('/artists/search_results')
-
     } catch (err) {
       console.log(err)
     }
@@ -75,10 +73,10 @@ const App = () => {
           <Route exact path='/artists' component={() => <ArtistsList artists={artists} />} />
           <Route exact path='/events/new' component={() => <CreateEvent />} />
           <Route exact path='/artists/new' component={() => <CreateArtist />} />
-          <Route exact path='/artists/search_results' component={() => <SearchResults searchQuery={searchQuery} searchResults={searchResults} />} />
+          <Route exact path='/artists/search_results' component={() => <SearchResults searchResults={searchResults} />} />
           {
             artists.map(artist => (
-              <Route path={`/artists/:id`} component={() => <ArtistPage artist={artist}/>} />
+              <Route path={`/artists/${artist._id}`} component={() => <ArtistPage artist={artist}/>} />
             )
             )}
         </Switch>

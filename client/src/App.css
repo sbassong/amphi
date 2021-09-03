@@ -90,3 +90,7 @@ img {
   height: 100%;
   width: 100%;
 }
+
+.artist-container {
+  margin-top: 50px;
+}

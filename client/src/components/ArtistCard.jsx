@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 
 const ArtistCard = ({id, image, name}) => {
   return (
-    <div className='artist-card'>
-      <Link to={`/artists/${id}`} >
-          <img src={image} alt="" />
-          <h3>{name}</h3>
-      </Link>
-    </div>
+    <Link to={`/artists/${id}`} >
+        <div className='featured-card'>
+          <div className='featured-cont'><img src={image} alt="" /></div>
+          <h1 className='featured-h1'>{name}</h1>
+      </div>
+    </Link>
   )
 }
 

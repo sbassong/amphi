@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
+import { Button } from 'react-rainbow-components'
 
 const Listing = ({ artist, date, time, venue, location, name }) => {
+  const [artistData, setArtist] = useState({})
 
   const addToCart = () => {
     const newItemData = {
@@ -20,17 +22,39 @@ const Listing = ({ artist, date, time, venue, location, name }) => {
       console.log(error)
     }
   }
+
+  const getArtistByName = async(name) => {
+    try {
+      const res = await axios.get(`${BASE_URL}/artists/artist/${name}`)
+      setArtist(res.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(()=> {
+    getArtistByName(artist)
+  }, [])
+
+  const buttonStyles = {
+    width: 50,
+  }
   
   return (
     <div className='listing'>
-      <p>{date}</p> 
-      <p>{time}</p>
-      <h3>{name}</h3>
-      <section className='drop-info'>
-        <p>{venue}</p>
-        <p>{location}</p>
+      <div className='listing-img-cont' ><img src={artistData.image} alt={artistData.name} /></div>
+      <section>
+        <section className='listing-sec-1'>
+          <h2 className='listing-h2'>{name}</h2>
+        </section>
+        <section className='listing-sec-2'>
+          <p>{date}</p>
+          <p>{time}</p> 
+          <p>{venue} </p>
+          <p>{location}</p>
+          <Button onClick={() => addToCart()} className='delete-button' styles={buttonStyles}>Add To Cart</Button>
+        </section>
       </section>
-      <button onClick={() => addToCart()} className='delete-button'>Add To Cart</button>
     </div>
   )
 }

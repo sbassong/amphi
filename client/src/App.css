@@ -86,7 +86,7 @@ header {
 }
 
 img {
-  border: 6px solid black;
+  border: 3px solid #191970;
   height: 100%;
   width: 100%;
 }
@@ -106,9 +106,30 @@ img {
   width: 90%;
   border: 4px solid 	#191970;
   border-radius: 7px;
-  margin: 10px;
+  margin: 10px auto;
+  padding: 2px
 }
 
 .listing-h2 {
   font-size: 40px;
+  margin-top: 3px;
+  color: #191970;
+}
+
+.add-button {
+  width: 50%;
+}
+
+.cart-cont {
+  width: 50%;
+  margin: 40px auto;
+}
+
+.delete-button {
+  width: 20%;
+  margin-top: -5px;
+}
+
+p {
+  font-weight: bold;
 }

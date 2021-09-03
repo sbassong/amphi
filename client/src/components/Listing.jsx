@@ -52,7 +52,7 @@ const Listing = ({ artist, date, time, venue, location, name }) => {
           <p>{time}</p> 
           <p>{venue} </p>
           <p>{location}</p>
-          <Button onClick={() => addToCart()} className='delete-button' styles={buttonStyles}>Add To Cart</Button>
+          <Button onClick={() => addToCart()} className='add-button' styles={buttonStyles}>Add To Cart</Button>
         </section>
       </section>
     </div>

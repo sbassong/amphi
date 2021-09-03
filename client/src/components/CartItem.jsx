@@ -4,12 +4,16 @@ const CartItem = ({ artist, date, time, venue, location, name }) => {
   
   return (
     <div className='listing'>
-      <p>{date}</p> 
-      <p>{time}</p>
-      <h3>{name}</h3>
-      <section className='drop-info'>
-        <p>{venue}</p>
-        <p>{location}</p>
+      <section>
+        <section className='listing-sec-1'>
+          <h2 className='listing-h2'>{name}</h2>
+        </section>
+        <section className='listing-sec-2'>
+          <p>{date}</p>
+          <p>{time}</p>
+          <p>{venue} </p>
+          <p>{location}</p>
+        </section>
       </section>
     </div>
   )

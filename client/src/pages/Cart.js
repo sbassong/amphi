@@ -2,6 +2,7 @@ import React from "react";
 import CartItem from "../components/CartItem";
 import axios from 'axios'
 import { BASE_URL } from '../globals'
+import { Button } from 'react-rainbow-components'
 
 const Cart = ({cartItems}) => {
 
@@ -12,12 +13,12 @@ const Cart = ({cartItems}) => {
   }
 
   return (
-    <div>
-      <h2>Cart Items:</h2>
+    <div className='cart'>
+      <h1>Cart Items:</h1>
       {cartItems.map(item => (
-        <div>
+        <div className='cart-cont'>
           <CartItem key={item._id} id={item._id} name={item.event_name} venue={item.venue} date={item.date} time={item.time} location={item.location} artist={item.artist} />
-          <button onClick={() => deleteItem(item._id)} className='delete-button'>Remove</button>
+          <Button onClick={() => deleteItem(item._id)} className='delete-button'>Remove</Button>
         </div>
       ))}
     </div>

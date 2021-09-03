@@ -3,8 +3,8 @@ import React from 'react'
 const FeaturedCard = ({image, name}) => {
   return (
     <div className='featured-card'>
-        <div className='featured-card'><img src={image} alt={name} /></div>
-        <h2>{name}</h2>
+        <div className='featured-cont'><img src={image} alt={name} /></div>
+        <h1 className='featured-h1' >{name}</h1>
     </div>
   )
 }

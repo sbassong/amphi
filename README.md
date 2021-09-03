@@ -43,7 +43,7 @@
 ##### Amphi homepage
 ![Homepage](https://i.imgur.com/dPvOMm8l.png)
 
-##### Amphi Artist page
+##### Amphi Cart page
 ![Page](https://i.imgur.com/YxEJuKsl.png)
 ***
 

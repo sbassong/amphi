@@ -1,4 +1,4 @@
-# Amphi: the music events finder
+# Amphi
 
 ## Date: 8/27/2021
 
@@ -25,13 +25,13 @@
 
 #### 
 * As the user, you're the driver! Play around with site and test out the functionality. Hope you find an event you like, Enjoy!
-* ###  [Application]() 
+* ###  [Application](https://fast-cove-17382.herokuapp.com/) 
 * ###  [Trello](https://trello.com/b/z62FupYw/amphi) 
 ***
 
 ### ***Future Updates***
 
-- [ X ] Integrate a UI Library (React-Rainbow)
+- [x] Integrate a UI Library (React-Rainbow)
 - [ ] Add checkout functionality
 - [ ] Add Map events functionality
 - [ ] Integrate UPDATE (PUT)

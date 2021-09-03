@@ -133,3 +133,40 @@ img {
 p {
   font-weight: bold;
 }
+
+.artist-form {
+  width: 60%;
+  margin: 50px auto;
+  /* background-color: #191970; */
+  border: 3px solid #191970;
+  border-radius: 7px;
+  padding-bottom: 20px;
+}
+
+.artist-form > div {
+  margin:  40px auto;
+  width: 85%;
+}
+
+.create-button {
+  width: 30%;
+}
+
+
+.artist-section {
+  display: flex;
+  width: 60%;
+  border: 4px solid 	#191970;
+  border-radius: 7px;
+  margin: 30px auto;
+  padding: 2px;
+}
+
+.artist-page {
+  display: flex;
+  padding: auto
+}
+
+.artist-events {
+  width: 40%;
+}

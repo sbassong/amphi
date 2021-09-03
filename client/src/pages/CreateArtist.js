@@ -55,7 +55,7 @@ const CreateArtist = () => {
           <Input type="text" label="Image" name="image" placeholder="Enter artist's image URL" onChange={(e) => updateImage(e.target.value)}></Input>
         </div>
       
-        <Button type='submit'>Register Artist</Button>
+        <Button className='create-button' type='submit'>Register Artist</Button>
       </form>
     </div>
   )

@@ -72,7 +72,7 @@ const CreateEvent = () => {
           <Input type="text" label="Location" name="location" placeholder="Enter venue's location. ex: Seattle, WA" onChange={(e) => updateLocation(e.target.value)}></Input>
         </div>
         
-        <Button type='submit'>Register Event</Button>
+        <Button className='create-button' type='submit'>Register Event</Button>
       </form>
     </div>
   )

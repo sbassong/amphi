@@ -22,9 +22,9 @@ const ArtistPage = ({artist}) => {
   }, [artist.name])
 
   return (
-    <div>
+    <div className='artist-page'>
       <ArtistSection image={artist.image} name={artist.name} description={artist.description}/>
-      <div>
+      <div className='artist-events'>
         {artistEvents !== [] && artistEvents.map(event => (
           <Listing key={event.event_id} id={event._id} name={event.event_name} venue={event.venue} date={event.date} time={event.time} location={event.location} />
         ))}

@@ -15,7 +15,7 @@ const SearchBar = ({onChange, onSubmit, value}) => {
     <div className='search-bar'>
       <form onSubmit={(e) => onSubmit(e)} className='search-form'>
         <Input onChange={(e) => onChange(e)} value={value} className='search-input' type="text" placeholder="Enter artist's name" icon={<FaSistrix />} style={inputStyles}/>
-        <Button className='search-button' style={buttonStyles}>Search</Button>
+        <Button className='search-button' type='submit' style={buttonStyles}>Search</Button>
       </form>
     </div>
   )

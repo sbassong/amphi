@@ -76,26 +76,35 @@ const App = () => {
   const handleChange = (e) => {
     setSearchQuery(e.target.value)
   }
+
+  const theme = {
+    rainbow: {
+        palette: {
+            brand: '#5c56b6',
+        },
+    },
+  }
+
   return (
-    <div className="App">
-      <Header onChange={handleChange} onSubmit={getSearchResults} value={searchQuery}/>
-      <main>
-        <Switch>
-          <Route exact path='/' component={() => <Homepage artists={artists}/>} />
-          <Route exact path='/events' component={() => <EventsList events={events} />} />
-          <Route exact path='/artists' component={() => <ArtistsList artists={artists} />} />
-          <Route exact path='/cart' component={() => <Cart cartItems={cartItems} />} />
-          <Route exact path='/events/new' component={() => <CreateEvent />} />
-          <Route exact path='/artists/new' component={() => <CreateArtist />} />
-          <Route exact path='/artists/search_results' component={() => <SearchResults searchResults={searchResults} />} />
-          {
-            artists.map(artist => (
-              <Route path={`/artists/${artist._id}`} component={() => <ArtistPage artist={artist}/>} />
-            )
-            )}
-        </Switch>
-      </main>
-    </div>
+      <div className="App">
+        <Header onChange={handleChange} onSubmit={getSearchResults} value={searchQuery}/>
+        <main>
+          <Switch>
+            <Route exact path='/' component={() => <Homepage artists={artists}/>} />
+            <Route exact path='/events' component={() => <EventsList events={events} />} />
+            <Route exact path='/artists' component={() => <ArtistsList artists={artists} />} />
+            <Route exact path='/cart' component={() => <Cart cartItems={cartItems} />} />
+            <Route exact path='/events/new' component={() => <CreateEvent />} />
+            <Route exact path='/artists/new' component={() => <CreateArtist />} />
+            <Route exact path='/artists/search_results' component={() => <SearchResults searchResults={searchResults} />} />
+            {
+              artists.map(artist => (
+                <Route path={`/artists/${artist._id}`} component={() => <ArtistPage artist={artist}/>} />
+              )
+              )}
+          </Switch>
+        </main>
+      </div>
   )
 }
 

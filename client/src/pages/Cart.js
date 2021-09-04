@@ -4,12 +4,11 @@ import axios from 'axios'
 import { BASE_URL } from '../globals'
 import { Button } from 'react-rainbow-components'
 
-const Cart = ({cartItems}) => {
+const Cart = ({cartItems, toggleDeleted}) => {
 
   const deleteItem = (id) => {
     axios.delete(`${BASE_URL}/cart/${id}`)
-    .then(res => console.log(res.data))
-    window.location.reload()
+    toggleDeleted(true)
   }
 
   return (

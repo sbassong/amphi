@@ -3,7 +3,7 @@ import axios from 'axios'
 import { BASE_URL } from '../globals'
 import { Button } from 'react-rainbow-components'
 
-const Listing = ({ artist, date, time, venue, location, name }) => {
+const Listing = ({ artist, date, time, venue, location, name, toggleItems }) => {
   const [artistData, setArtist] = useState({})
 
   const addToCart = () => {
@@ -18,6 +18,7 @@ const Listing = ({ artist, date, time, venue, location, name }) => {
     
     try {
       axios.post(`${BASE_URL}/cart/new`, newItemData)
+      toggleItems(true)
     } catch (error) {
       console.log(error)
     }

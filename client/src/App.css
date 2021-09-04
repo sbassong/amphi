@@ -179,14 +179,18 @@ p {
 .artist-section {
   display: flex;
   width: 60%;
+  height: 500px;
   border: 4px solid	#00bfff;
   border-radius: 7px;
   margin: 30px auto;
   padding: 2px;
 }
 
+.artist-section  p {
+  padding: 0 40px;
+}
+
 .artist-page {
-  display: flex;
   padding: auto;
   margin-top: 40px
 }

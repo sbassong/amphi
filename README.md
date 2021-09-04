@@ -8,7 +8,7 @@
 ***
 
 ### ***Description***
-####  Amphi is a fully functional events search application and database which leverages the MERN stack (MongoDB/Express/React/Node.js) to create an engaging, responsive and intuitive user experience. Amphi features search functionality by artist, add/remove events/artists functionality, add/remove from cart and redirection to tickets vendor site. This project was implemented with the MERN stack technologies, React-Rainbow framework, and deployed with Heroku. This is the unit 2 project for the Software Engineering Immersive at General Assembly. 
+####  Amphi is a fully functional events search application and database which leverages the MERN stack (MongoDB/Express/React/Node.js) to create an engaging, responsive and intuitive user experience. Amphi features search functionality by artist, add events/artists functionality, add/remove from cart and soon, redirection to tickets vendor site. This project was implemented with the MERN stack technologies, React-Rainbow framework, and deployed with Heroku. This is the unit 2 project for the Software Engineering Immersive at General Assembly. 
 ***
 
 ### ***Technologies Used***

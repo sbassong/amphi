@@ -7,7 +7,6 @@ import ArtistSection from '../components/ArtistSection'
 const ArtistPage = ({artist, toggleItems}) => {
   const [artistEvents, updateEvents] = useState([])
 
-  //uses artist.name to find events by artist that matches event.artist
   const getEventsByArtistName = async (artistName) => {
     try {
       const res = await axios.get(`${BASE_URL}/artists/id/${artistName}`)

@@ -40,11 +40,14 @@
 
 ### ***Screenshots***
 
-##### Amphi homepage
-![Homepage](https://i.imgur.com/dPvOMm8l.png)
+##### Amphi Homepage
+![Homepage](https://i.imgur.com/3NCGdgWl.png)
 
-##### Amphi Cart page
-![Page](https://i.imgur.com/YxEJuKsl.png)
+##### Amphi Search Results Page
+![Page](https://i.imgur.com/s9mhXuGl.png)
+
+##### Amphi Add New Artist Page
+![Page](https://i.imgur.com/51Zo5aEl.png)
 ***
 
 ### ***Credits***

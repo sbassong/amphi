@@ -19,7 +19,9 @@ import Cart from './pages/Cart';
 const App = () => {
   const history = useHistory()
   const [artists, setArtists] = useState([])
+  const [artistsUpdated, toggleArtists] = useState(false)
   const [events, setEvents] = useState([])
+  const [eventsUpdated, toggleEvents] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [searchResults, setSearchResults] = useState([])
   const [cartItems, updateCart] = useState([])
@@ -55,10 +57,17 @@ const App = () => {
 
 
   useEffect(() => {
-    getItems()
     getEvents()
-    getArtists()
+  }, [eventsUpdated])
+
+  useEffect(() => {
+    getArtists()    
+  }, [artistsUpdated])
+
+  useEffect(() => {
+    getItems()
   }, [])
+
 
 //handles submit of searchQuery
   const getSearchResults = async (e) => {
@@ -77,14 +86,6 @@ const App = () => {
     setSearchQuery(e.target.value)
   }
 
-  const theme = {
-    rainbow: {
-        palette: {
-            brand: '#5c56b6',
-        },
-    },
-  }
-
   return (
       <div className="App">
         <Header onChange={handleChange} onSubmit={getSearchResults} value={searchQuery}/>
@@ -94,8 +95,8 @@ const App = () => {
             <Route exact path='/events' component={() => <EventsList events={events} />} />
             <Route exact path='/artists' component={() => <ArtistsList artists={artists} />} />
             <Route exact path='/cart' component={() => <Cart cartItems={cartItems} />} />
-            <Route exact path='/events/new' component={() => <CreateEvent />} />
-            <Route exact path='/artists/new' component={() => <CreateArtist />} />
+            <Route exact path='/events/new' component={() => <CreateEvent toggleEvents={toggleEvents}/>} />
+            <Route exact path='/artists/new' component={() => <CreateArtist toggleArtists={toggleArtists}/>} />
             <Route exact path='/artists/search_results' component={() => <SearchResults searchResults={searchResults} />} />
             {
               artists.map(artist => (

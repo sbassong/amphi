@@ -4,7 +4,7 @@ import { BASE_URL } from '../globals'
 import { useHistory } from 'react-router'
 import { Input, Button } from 'react-rainbow-components'
 
-const CreateEvent = () => {
+const CreateEvent = ({toggleEvents}) => {
   const history = useHistory()
   const [events, setEvents] = useState([])
 
@@ -32,8 +32,7 @@ const CreateEvent = () => {
 
     axios.post(`${BASE_URL}/events/new`, newEventData)
     .then(function (res) {
-      const newEvent = res.data.results
-      setEvents([newEvent, ...events])
+      toggleEvents(true)
       history.push('/')
     })
     .catch(function (error) {

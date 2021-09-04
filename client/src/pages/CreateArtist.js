@@ -4,9 +4,8 @@ import { BASE_URL } from '../globals'
 import { useHistory } from 'react-router'
 import { Input, Button } from 'react-rainbow-components'
 
-const CreateArtist = () => {
+const CreateArtist = ({toggleArtists}) => {
   const history = useHistory()
-  const [artists, setArtists] = useState([])
 
   const [name, updateName] = useState('')
   const [genre, updateGenre] = useState('')
@@ -26,8 +25,7 @@ const CreateArtist = () => {
 
     axios.post(`${BASE_URL}/artists/new`, newArtistData)
     .then(function (res) {
-      const newArtist = res.data.results
-      setArtists([newArtist, ...artists])
+      toggleArtists(true)
       history.push('/')
     })
     .catch(function (error) {

@@ -19,7 +19,7 @@ const ArtistPage = ({artist, toggleItems}) => {
   
   useEffect(() => {
     getEventsByArtistName(artist.name)
-  }, [])
+  }, [artist])
 
   return (
     <div className='artist-page'>

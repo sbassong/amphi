@@ -6,7 +6,6 @@ import { Input, Button } from 'react-rainbow-components'
 
 const CreateEvent = ({toggleEvents}) => {
   const history = useHistory()
-  const [events, setEvents] = useState([])
 
   const [event_name, updateName] = useState('')
   const [genre, updateGenre] = useState('')
@@ -17,7 +16,7 @@ const CreateEvent = ({toggleEvents}) => {
   const [artist, updateArtist] = useState('')
 
   //handleSubmit for event
-  const handleEventSubmit = (e) => {
+  const handleEventSubmit = async(e) => {
     e.preventDefault()
     
     const newEventData = {
@@ -30,10 +29,10 @@ const CreateEvent = ({toggleEvents}) => {
       artist: artist
     }
 
-    axios.post(`${BASE_URL}/events/new`, newEventData)
+    await axios.post(`${BASE_URL}/events/new`, newEventData)
     .then(function (res) {
       toggleEvents(true)
-      history.push('/')
+      history.push('/events')
     })
     .catch(function (error) {
       console.log(error)

@@ -13,7 +13,7 @@ const CreateArtist = ({toggleArtists}) => {
   const [image, updateImage] = useState('')
 
   //handleSubmit for artist
-  const handleArtistSubmit = (e) => {
+  const handleArtistSubmit = async (e) => {
     e.preventDefault()
     
     const newArtistData = {
@@ -23,10 +23,10 @@ const CreateArtist = ({toggleArtists}) => {
       image: image
     }
 
-    axios.post(`${BASE_URL}/artists/new`, newArtistData)
+    await axios.post(`${BASE_URL}/artists/new`, newArtistData)
     .then(function (res) {
       toggleArtists(true)
-      history.push('/')
+      history.push('/artists')
     })
     .catch(function (error) {
       console.log(error)

@@ -98,7 +98,7 @@ const App = () => {
         <main>
           <Switch>
             <Route exact path='/' component={() => <Homepage artists={artists}/>} />
-            <Route exact path='/events' component={() => <EventsList events={events} toggleItems={toggleItems}/>} />
+            <Route exact path='/events' component={() => <EventsList events={events} toggleItems={toggleItems} eventsUpdated={eventsUpdated}/>} />
             <Route exact path='/artists' component={() => <ArtistsList artists={artists} />} />
             <Route exact path='/cart' component={() => <Cart cartItems={cartItems} toggleDeleted={toggleDeleted}/>} />
             <Route exact path='/events/new' component={() => <CreateEvent toggleEvents={toggleEvents}/>} />
@@ -106,7 +106,7 @@ const App = () => {
             <Route exact path='/artists/search_results' component={() => <SearchResults searchResults={searchResults} />} />
             {
               artists.map(artist => (
-                <Route path={`/artists/${artist._id}`} component={() => <ArtistPage artist={artist} toggleItems={toggleItems}/>} />
+                <Route path={`/artists/${artist._id}`} component={() => <ArtistPage artist={artist} toggleItems={toggleItems} eventsUpdated={eventsUpdated}/>} />
               )
               )}
           </Switch>

@@ -8,6 +8,8 @@
 body {
   background-color: rgb(243, 240, 240);
   margin: 0;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 a {

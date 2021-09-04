@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import './App.css';
 import { Route, Switch, useHistory} from 'react-router-dom';
+import './App.css';
 
 import axios from 'axios'
 import { BASE_URL } from './globals'
@@ -28,6 +28,7 @@ const App = () => {
   const [itemsUpdated, toggleItems] = useState(false)
   const [itemDeleted, toggleDeleted] = useState(false)
 
+//main data Getters
   //getEvents
   const getEvents = async() => {
     try {
@@ -48,7 +49,6 @@ const App = () => {
       console.log(error)
     }
   }
-
   //getItems
   const getItems = async() => {
     try {
@@ -60,7 +60,6 @@ const App = () => {
       console.log(error)
     }
   }
-
 
   useEffect(() => {
     getEvents()
@@ -94,19 +93,19 @@ const App = () => {
 
   return (
       <div className="App">
-        <Header onChange={handleChange} onSubmit={getSearchResults} value={searchQuery}/>
+        <Header onChange={handleChange} onSubmit={getSearchResults} value={searchQuery} />
         <main>
           <Switch>
-            <Route exact path='/' component={() => <Homepage artists={artists}/>} />
-            <Route exact path='/events' component={() => <EventsList events={events} toggleItems={toggleItems} eventsUpdated={eventsUpdated}/>} />
+            <Route exact path='/' component={() => <Homepage artists={artists} />} />
+            <Route exact path='/events' component={() => <EventsList events={events} toggleItems={toggleItems} eventsUpdated={eventsUpdated} />} />
             <Route exact path='/artists' component={() => <ArtistsList artists={artists} />} />
             <Route exact path='/cart' component={() => <Cart cartItems={cartItems} toggleDeleted={toggleDeleted}/>} />
             <Route exact path='/events/new' component={() => <CreateEvent toggleEvents={toggleEvents}/>} />
-            <Route exact path='/artists/new' component={() => <CreateArtist toggleArtists={toggleArtists}/>} />
+            <Route exact path='/artists/new' component={() => <CreateArtist toggleArtists={toggleArtists} />} />
             <Route exact path='/artists/search_results' component={() => <SearchResults searchResults={searchResults} />} />
             {
               artists.map(artist => (
-                <Route path={`/artists/${artist._id}`} component={() => <ArtistPage artist={artist} toggleItems={toggleItems} eventsUpdated={eventsUpdated}/>} />
+                <Route path={`/artists/${artist._id}`} component={() => <ArtistPage artist={artist} toggleItems={toggleItems} eventsUpdated={eventsUpdated} />} />
               )
               )}
           </Switch>

@@ -5,10 +5,16 @@
   width: 100%;
 }
 
+body {
+  background-color: rgb(243, 240, 240);
+  margin: 0;
+}
+
 a {
   text-decoration: none;
   margin: 0 4px;
 }
+
 .logo {
   font-family: 'Syncopate', sans-serif;
   font-size: 60px;
@@ -49,6 +55,7 @@ header {
 
 .featured {
   display: flex;
+  overflow-y: hidden;
   margin: 20px 5px 20px 5px;
 }
 
@@ -57,7 +64,8 @@ header {
   border-radius: 7px;
   margin: 10px;
   height: 300px; 
-  width: 250px; 
+  min-width: 250px;
+  max-width: 250px; 
   overflow-x: hidden;
   overflow-y: hidden;
   background-color: #00bfff;
@@ -157,7 +165,7 @@ p {
 }
 
 .artist-form > div {
-  margin:  40px auto;
+  margin:  20px auto;
   width: 85%;
 }
 

@@ -17,7 +17,7 @@ const Cart = ({cartItems, toggleDeleted}) => {
       {cartItems.map(item => (
         <div className='cart-cont'>
           <CartItem key={item._id} id={item._id} name={item.event_name} venue={item.venue} date={item.date} time={item.time} location={item.location} artist={item.artist} />
-          <Button onClick={() => deleteItem(item._id)} className='delete-button'>Remove</Button>
+          <Button onClick={() => deleteItem(item._id)} label='Remove Item' className='delete-button'></Button>
         </div>
       ))}
     </div>

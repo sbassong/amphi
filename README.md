@@ -55,5 +55,7 @@
 #### inspiration: Ticketmaster/ticketweb
 #### Pictures: [DuckDuckGoSearch](https://duckduckgo.com)
 #### artist description: [Wikipedia](https://www.wikipedia.org/)
+#### icons: [React-icons](https://react-icons.github.io/react-icons/)
+#### random data: [Faker API](https://www.npmjs.com/package/faker)
 
 

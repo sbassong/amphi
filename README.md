@@ -1,24 +1,24 @@
 # Amphi
 
-## Date: 8/27/2021
-
 ### By: Sam Bassong
 
-###  [Porfolio]() | [GitHub](https://github.com/sbassong) | [LinkedIn](https://www.linkedin.com/in/sambassong/)
+###  [Porfolio](https://www.sambassong.com/) | [LinkedIn](https://www.linkedin.com/in/sambassong/) | [GitHub](https://github.com/sbassong) 
+#### Date: 8/27/2021
 ***
 
 ### ***Description***
-####  Amphi is a fully functional events search application and database which leverages the MERN stack (MongoDB/Express/React/Node.js) to create an engaging, responsive and intuitive user experience. Amphi features search functionality by artist, add events/artists functionality, add/remove from cart and soon, redirection to tickets vendor site. This project was implemented with the MERN stack technologies, React-Rainbow framework, and deployed with Heroku. This is the unit 2 project for the Software Engineering Immersive at General Assembly. 
+####  [Amphi](https://fast-cove-17382.herokuapp.com/) is a fully functional events search application and database which leverages the MERN stack (MongoDB/Express/React/Node.js) to create an engaging, responsive and intuitive user experience. Amphi features search functionality by artist, add events/artists functionality, add/remove from cart and soon, redirection to tickets vendor site. This project was implemented with the MERN stack technologies, React-Rainbow framework, and deployed with Heroku. This is the unit 2 project for the Software Engineering Immersive at General Assembly. 
 ***
 
 ### ***Technologies Used***
-* MongoDB
-* Express
-* React
-* Node.js
-* CSS
-* React-Rainbow
-* Heroku
+
+- [MongoDB](https://www.mongodb.com/) - Document-oriented database
+- [Express.js](https://expressjs.com/) - Web framework for Node.js
+- [React](https://reactjs.org/) - (Best) Frontend JS library
+- [Node.js](https://nodejs.org/en/) - JS runtime
+- [Heroku](https://www.heroku.com/home) - Deployment host
+- [React-rainbow](https://react-rainbow.io/#/GettingStarted) - React styled-components library
+
 ***
 
 ### ***Getting Started***

@@ -12,7 +12,7 @@ const Cart = () => {
     try {
       const res = await axios.get(`${BASE_URL}/cart`)
       updateCart(res.data)
-      // setUpdated(false)
+      setUpdated(false)
     } catch (error) {
       console.log(error)
     }
@@ -39,7 +39,7 @@ const Cart = () => {
       {cartItems.length > 0 && cartItems.map(item => (
         <div className='cart-cont'>
           <CartItem key={item._id} id={item._id} name={item.event_name} venue={item.venue} date={item.date} time={item.time} location={item.location} artist={item.artist} />
-          <button onClick={() => deleteItem(item._id)} className='delete-button'>remove</button>
+          <button key={item._id} onClick={() => deleteItem(item._id)} className='delete-button'>remove</button>
         </div>
       ))}
     </div>

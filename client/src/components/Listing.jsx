@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
-import { Button } from 'react-rainbow-components'
 
 const Listing = ({ artist, date, time, venue, location, name}) => {
 
@@ -33,7 +32,7 @@ const Listing = ({ artist, date, time, venue, location, name}) => {
           <p>{date} at {time}</p> 
           <p>{venue} </p>
           <p>{location}</p>
-          <Button onClick={() => addToCart()} className='add-button' label='Add to cart' size='small'></Button>
+          <button onClick={() => addToCart()} className='add-button' label='Add to cart' size='small'>Add to Card</button>
         </section>
       </section>
     </div>

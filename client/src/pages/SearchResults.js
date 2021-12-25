@@ -1,4 +1,3 @@
-// import { useEffect } from 'react'
 import ArtistCard from '../components/ArtistCard'
 
 

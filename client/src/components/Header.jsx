@@ -1,7 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import SearchBar from './SearchBar'
-import { Tabset, Tab } from 'react-rainbow-components'
 
 const Header = ({onChange, onSubmit, value}) => {
 
@@ -12,15 +11,14 @@ const Header = ({onChange, onSubmit, value}) => {
           <SearchBar onChange={onChange} onSubmit={onSubmit} value={value}/> 
       </section>
 
-      <nav>
-        <Tabset className='nav'>
-          <NavLink to='/'><Tab label='Home'></Tab></NavLink>
-          <NavLink to='/events'><Tab label='Events'></Tab></NavLink>
-          <NavLink to='/artists'><Tab label="Artists"></Tab></NavLink> 
-          <NavLink to='/events/new'><Tab label='Add New Event'></Tab></NavLink>
-          <NavLink to='/artists/new'><Tab label='Add New Artist'></Tab></NavLink>
-          <NavLink to='/cart'><Tab label='Cart'></Tab></NavLink>
-        </Tabset>
+      <nav className='nav'>
+          <NavLink to='/'>Home</NavLink>
+          <NavLink to='/events'>Events</NavLink>
+          <NavLink to='/artists'>Artists</NavLink> 
+          <NavLink to='/events/new'>Add Event</NavLink>
+          <NavLink to='/artists/new'>Add Artist</NavLink>
+          <NavLink to='/cart'>Cart</NavLink>
+
       </nav>
       
       

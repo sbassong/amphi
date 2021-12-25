@@ -1,5 +1,4 @@
 import React from 'react'
-import { Input, Button } from 'react-rainbow-components'
 import { FaSistrix } from 'react-icons/fa'
 
 const SearchBar = ({onChange, onSubmit, value}) => {
@@ -14,8 +13,8 @@ const SearchBar = ({onChange, onSubmit, value}) => {
   return (
     <div className='search-bar'>
       <form onSubmit={(e) => onSubmit(e)} className='search-form'>
-        <Input onChange={(e) => onChange(e)} value={value} className='search-input' type="text" placeholder="Enter artist's name" icon={<FaSistrix />} style={inputStyles}/>
-        <Button className='search-button' type='submit' style={buttonStyles}>Search</Button>
+        <input onChange={(e) => onChange(e)} value={value} className='search-input' type="text" placeholder="Enter artist's name" icon={<FaSistrix />} style={inputStyles}/>
+        <button className='search-button' type='submit' style={buttonStyles}>Search</button>
       </form>
     </div>
   )

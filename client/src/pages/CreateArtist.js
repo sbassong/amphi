@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 import { useNavigate } from 'react-router'
-import { Input, Button } from 'react-rainbow-components'
 
 const CreateArtist = ({toggleArtists}) => {
   const navigate = useNavigate()
@@ -38,22 +37,22 @@ const CreateArtist = ({toggleArtists}) => {
     <div>
       <form className='artist-form' onSubmit={(e) => handleArtistSubmit(e)}>
         <div>
-          <Input type="text"  label="Name" name="name"  placeholder="Enter artist's name" onChange={(e) => updateName(e.target.value)}></Input>
+          <input type="text"  label="Name" name="name"  placeholder="Enter artist's name" onChange={(e) => updateName(e.target.value)}></input>
         </div>
 
         <div>
-          <Input type="text" label="Genre"  name="genre" placeholder="Enter artist's genre" onChange={(e) => updateGenre(e.target.value)}></Input>
+          <input type="text" label="Genre"  name="genre" placeholder="Enter artist's genre" onChange={(e) => updateGenre(e.target.value)}></input>
         </div>
 
         <div>
-          <Input type="text" label="Description" name="description" placeholder="Enter a short summary about artist" onChange={(e) => updateDescription(e.target.value)}></Input>
+          <input type="text" label="Description" name="description" placeholder="Enter a short summary about artist" onChange={(e) => updateDescription(e.target.value)}></input>
         </div>
 
         <div>
-          <Input type="text" label="Image" name="image" placeholder="Enter artist's image URL" onChange={(e) => updateImage(e.target.value)}></Input>
+          <input type="text" label="Image" name="image" placeholder="Enter artist's image URL" onChange={(e) => updateImage(e.target.value)}></input>
         </div>
       
-        <Button className='create-button' type='submit'>Register Artist</Button>
+        <button className='create-button' type='submit'>Register Artist</button>
       </form>
     </div>
   )

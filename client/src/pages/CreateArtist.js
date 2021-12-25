@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router'
 import { Input, Button } from 'react-rainbow-components'
 
 const CreateArtist = ({toggleArtists}) => {
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const [name, updateName] = useState('')
   const [genre, updateGenre] = useState('')
@@ -26,7 +26,7 @@ const CreateArtist = ({toggleArtists}) => {
     await axios.post(`${BASE_URL}/artists/new`, newArtistData)
     .then(function (res) {
       toggleArtists(true)
-      history.push('/artists')
+      navigate.push('/artists')
     })
     .catch(function (error) {
       console.log(error)

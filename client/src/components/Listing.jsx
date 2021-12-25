@@ -3,7 +3,7 @@ import axios from 'axios'
 import { BASE_URL } from '../globals'
 import { Button } from 'react-rainbow-components'
 
-const Listing = ({ artist, date, time, venue, location, name, toggleItems}) => {
+const Listing = ({ artist, date, time, venue, location, name}) => {
 
   const addToCart = async () => {
     const newItemData = {
@@ -17,7 +17,6 @@ const Listing = ({ artist, date, time, venue, location, name, toggleItems}) => {
     
     try {
       await axios.post(`${BASE_URL}/cart/new`, newItemData)
-      toggleItems(true)
     } catch (error) {
       console.log(error)
     }

@@ -1,23 +1,45 @@
-import React from "react";
+import { useState, useEffect } from 'react'
 import CartItem from "../components/CartItem";
 import axios from 'axios'
 import { BASE_URL } from '../globals'
-import { Button } from 'react-rainbow-components'
 
-const Cart = ({cartItems, toggleDeleted}) => {
+const Cart = () => {
+  const [cartItems, updateCart] = useState([])
+  const [updated, setUpdated] = useState(false)
 
-  const deleteItem = (id) => {
-    axios.delete(`${BASE_URL}/cart/${id}`)
-    toggleDeleted(true)
+
+  const getItems = async() => {
+    try {
+      const res = await axios.get(`${BASE_URL}/cart`)
+      updateCart(res.data)
+      // setUpdated(false)
+    } catch (error) {
+      console.log(error)
+    }
   }
+
+  const deleteItem = async (id) => {
+    try {
+      await axios.delete(`${BASE_URL}/cart/${id}`)
+      let updatedCartItems = cartItems.filter(item => item._id !== id)
+      updateCart(updatedCartItems)
+      setUpdated(true)
+    } catch (error) {
+      throw error
+    }
+  }
+
+  useEffect(() => {
+    getItems() 
+  }, [updated])
 
   return (
     <div className='cart'>
       <h1>Cart Items:</h1>
-      {cartItems.map(item => (
+      {cartItems.length > 0 && cartItems.map(item => (
         <div className='cart-cont'>
           <CartItem key={item._id} id={item._id} name={item.event_name} venue={item.venue} date={item.date} time={item.time} location={item.location} artist={item.artist} />
-          <Button onClick={() => deleteItem(item._id)} label='Remove Item' className='delete-button'></Button>
+          <button onClick={() => deleteItem(item._id)} className='delete-button'>remove</button>
         </div>
       ))}
     </div>

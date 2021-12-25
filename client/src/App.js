@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Route, Switch, useHistory} from 'react-router-dom';
+import { Route, Routes, useNavigate} from 'react-router-dom';
 import './App.css';
 
 import axios from 'axios'
@@ -17,16 +17,13 @@ import Cart from './pages/Cart';
 
 
 const App = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const [artists, setArtists] = useState([])
   const [artistsUpdated, toggleArtists] = useState(false)
   const [events, setEvents] = useState([])
-  const [eventsUpdated, toggleEvents] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [filterQuery, setFilterQuery] = useState('')
-  const [cartItems, updateCart] = useState([])
-  const [itemsUpdated, toggleItems] = useState(false)
-  const [itemDeleted, toggleDeleted] = useState(false)
+
 
 //main data Getters
   //getEvents
@@ -34,7 +31,7 @@ const App = () => {
     try {
       const res = await axios.get(`${BASE_URL}/events`)
       setEvents(res.data)
-      toggleEvents(false)
+      // toggleEvents(false)
     } catch (error) {
       console.log(error)
     }
@@ -50,39 +47,23 @@ const App = () => {
     }
   }
   //getItems
-  const getItems = async() => {
-    try {
-      const res = await axios.get(`${BASE_URL}/cart`)
-      updateCart(res.data)
-      toggleItems(false)
-      toggleDeleted(false)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
+  
   useEffect(() => {
     getEvents()
-  }, [eventsUpdated])
+  }, [])
 
   useEffect(() => {
     getArtists()    
   }, [artistsUpdated])
 
-  useEffect(() => {
-    getItems()
-  }, [itemsUpdated, itemDeleted])
 
-
-//handles submit of searchQuery
   const handleQuerySubmit = async (e) => {
     await e
     e.preventDefault()
-    history.push('/artists/search_results')
+    navigate('/artists/search_results')
     setSearchQuery('')
   }
 
-  //handles changes to search input field
   const handleChange = (e) => {
     setSearchQuery(e.target.value)
     setFilterQuery(e.target.value)
@@ -92,20 +73,20 @@ const App = () => {
       <div className="App">
         <Header onChange={handleChange} onSubmit={handleQuerySubmit} value={searchQuery} />
         <main>
-          <Switch>
-            <Route exact path='/' component={() => <Homepage artists={artists} />} />
-            <Route exact path='/events' component={() => <EventsList events={events} toggleItems={toggleItems} eventsUpdated={eventsUpdated} />} />
-            <Route exact path='/artists' component={() => <ArtistsList artists={artists} />} />
-            <Route exact path='/cart' component={() => <Cart cartItems={cartItems} toggleDeleted={toggleDeleted}/>} />
-            <Route exact path='/events/new' component={() => <CreateEvent toggleEvents={toggleEvents}/>} />
-            <Route exact path='/artists/new' component={() => <CreateArtist toggleArtists={toggleArtists} />} />
-            <Route exact path='/artists/search_results' component={() => <SearchResults artists={artists} filterQuery={filterQuery} />} />
+          <Routes>
+            <Route exact path='/' element={<Homepage artists={artists} />} />
+            <Route exact path='/events' element={<EventsList events={events} />} />
+            <Route exact path='/artists' element={<ArtistsList artists={artists} />} />
+            <Route exact path='/cart' element={<Cart />} />
+            <Route exact path='/events/new' element={<CreateEvent />} />
+            <Route exact path='/artists/new' element={<CreateArtist toggleArtists={toggleArtists} />} />
+            <Route exact path='/artists/search_results' element={<SearchResults artists={artists} filterQuery={filterQuery} />} />
             {
               artists.map(artist => (
-                <Route path={`/artists/${artist._id}`} component={() => <ArtistPage artist={artist} toggleItems={toggleItems} eventsUpdated={eventsUpdated} />} />
+                <Route path={`/artists/${artist._id}`} element={<ArtistPage artist={artist} />} />
               )
               )}
-          </Switch>
+          </Routes>
         </main>
       </div>
   )

@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router'
 import { Input, Button } from 'react-rainbow-components'
 
 const CreateEvent = ({toggleEvents}) => {
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const [event_name, updateName] = useState('')
   const [genre, updateGenre] = useState('')
@@ -32,7 +32,7 @@ const CreateEvent = ({toggleEvents}) => {
     await axios.post(`${BASE_URL}/events/new`, newEventData)
     .then(function (res) {
       toggleEvents(true)
-      history.push('/events')
+      navigate.push('/events')
     })
     .catch(function (error) {
       console.log(error)

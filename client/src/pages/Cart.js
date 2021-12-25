@@ -5,25 +5,22 @@ import { BASE_URL } from '../globals'
 
 const Cart = () => {
   const [cartItems, updateCart] = useState([])
-  const [updated, setUpdated] = useState(false)
 
 
   const getItems = async() => {
     try {
       const res = await axios.get(`${BASE_URL}/cart`)
       updateCart(res.data)
-      setUpdated(false)
     } catch (error) {
       console.log(error)
     }
   }
 
-  const deleteItem = async (id) => {
+  const deleteItem = (id) => {
     try {
-      await axios.delete(`${BASE_URL}/cart/${id}`)
+      axios.delete(`${BASE_URL}/cart/${id}`)
       let updatedCartItems = cartItems.filter(item => item._id !== id)
       updateCart(updatedCartItems)
-      setUpdated(true)
     } catch (error) {
       throw error
     }
@@ -31,15 +28,15 @@ const Cart = () => {
 
   useEffect(() => {
     getItems() 
-  }, [updated])
+  }, [])
 
   return (
     <div className='cart'>
       <h1>Cart Items:</h1>
-      {cartItems.length > 0 && cartItems.map(item => (
+      {cartItems.length > 0 && cartItems.map((item, index) => (
         <div className='cart-cont'>
           <CartItem key={item._id} id={item._id} name={item.event_name} venue={item.venue} date={item.date} time={item.time} location={item.location} artist={item.artist} />
-          <button key={item._id} onClick={() => deleteItem(item._id)} className='delete-button'>remove</button>
+          <button key={index} onClick={() => deleteItem(item._id)} className='delete-button'>remove</button>
         </div>
       ))}
     </div>

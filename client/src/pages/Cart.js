@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react'
-import CartItem from "../components/CartItem";
-import axios from 'axios'
-import { BASE_URL } from '../globals'
+import CartItem from "../components/CartItem"
 
-const Cart = () => {
+
+const Cart = ({Axios, BASE_URL}) => {
   const [cartItems, updateCart] = useState([])
-
 
   const getItems = async() => {
     try {
-      const res = await axios.get(`${BASE_URL}/cart`)
+      const res = await Axios.get(`${BASE_URL}/cart`)
       updateCart(res.data)
     } catch (error) {
       console.log(error)
@@ -18,7 +16,7 @@ const Cart = () => {
 
   const deleteItem = (id) => {
     try {
-      axios.delete(`${BASE_URL}/cart/${id}`)
+      Axios.delete(`${BASE_URL}/cart/${id}`)
       let updatedCartItems = cartItems.filter(item => item._id !== id)
       updateCart(updatedCartItems)
     } catch (error) {

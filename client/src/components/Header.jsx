@@ -2,22 +2,22 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import SearchBar from './SearchBar'
 
-const Header = ({onChange, onSubmit, value}) => {
+const Header = ({ setFilterQuery }) => {
 
   return (
     <header>
       <section className='left-nav'>
-          <NavLink className='logo' to='/'>AMPHI</NavLink>
-          <SearchBar onChange={onChange} onSubmit={onSubmit} value={value}/> 
+        <NavLink className='logo' to='/'><span>Amphi</span></NavLink>
+        <SearchBar setFilterQuery={setFilterQuery}/> 
       </section>
 
       <nav className='nav'>
-          <NavLink to='/'>Home</NavLink>
-          <NavLink to='/events'>Events</NavLink>
-          <NavLink to='/artists'>Artists</NavLink> 
-          <NavLink to='/events/new'>Add Event</NavLink>
-          <NavLink to='/artists/new'>Add Artist</NavLink>
-          <NavLink to='/cart'>Cart</NavLink>
+          <NavLink to='/'><span>Home</span></NavLink>
+        <NavLink to='/events'><span>Events</span></NavLink>
+        <NavLink to='/artists'><span>Artists</span></NavLink> 
+        <NavLink to='/events/new'><span>Add Event</span></NavLink>
+        <NavLink to='/artists/new'><span>Add Artist</span></NavLink>
+        <NavLink to='/cart'><span>Cart</span></NavLink>
 
       </nav>
       

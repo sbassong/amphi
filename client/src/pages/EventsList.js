@@ -4,18 +4,18 @@ import Listing from '../components/Listing'
 const EventsList = ({Axios, BASE_URL}) => {
   const [events, setEvents] = useState([])
 
-  const getEvents = async() => {
-    try {
-      const res = await Axios.get(`${BASE_URL}/events`)
-      setEvents(res.data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
+  
   useEffect(() => {
+    const getEvents = async() => {
+      try {
+        const res = await Axios.get(`${BASE_URL}/events`)
+        setEvents(res.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
     getEvents()
-  }, [])
+  }, [Axios, BASE_URL])
 
   return (
     <div className='events-cont'> 

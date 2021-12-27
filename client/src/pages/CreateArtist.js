@@ -3,7 +3,7 @@ import axios from 'axios'
 import { BASE_URL } from '../globals'
 import { useNavigate } from 'react-router'
 
-const CreateArtist = ({toggleArtists}) => {
+const CreateArtist = () => {
   const navigate = useNavigate()
 
   const [name, updateName] = useState('')
@@ -24,8 +24,7 @@ const CreateArtist = ({toggleArtists}) => {
 
     await axios.post(`${BASE_URL}/artists/new`, newArtistData)
     .then(function (res) {
-      toggleArtists(true)
-      navigate.push('/artists')
+      navigate('/artists')
     })
     .catch(function (error) {
       console.log(error)

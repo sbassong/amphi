@@ -5,15 +5,7 @@ import CartItem from "../components/CartItem"
 const Cart = ({Axios, BASE_URL}) => {
   const [cartItems, updateCart] = useState([])
 
-  const getItems = async() => {
-    try {
-      const res = await Axios.get(`${BASE_URL}/cart`)
-      updateCart(res.data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
+  
   const deleteItem = (id) => {
     try {
       Axios.delete(`${BASE_URL}/cart/${id}`)
@@ -23,10 +15,18 @@ const Cart = ({Axios, BASE_URL}) => {
       throw error
     }
   }
-
+  
   useEffect(() => {
+    const getItems = async() => {
+      try {
+        const res = await Axios.get(`${BASE_URL}/cart`)
+        updateCart(res.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
     getItems() 
-  }, [])
+  }, [Axios, BASE_URL])
 
   return (
     <div className='cart'>

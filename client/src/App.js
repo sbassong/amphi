@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Route, Routes} from 'react-router-dom'
-import './App.css';
+import './styles/App.css';
 
 import Axios from 'axios'
 import { BASE_URL } from './globals'
@@ -16,11 +16,21 @@ import SearchResults from './pages/SearchResults'
 import Cart from './pages/Cart';
 
 
-
 const App = () => {
   const [artists, setArtists] = useState([])
   const [filterQuery, setFilterQuery] = useState('')
+  const [windowDimension, detectHW] = useState({
+    winWidth: window.innerWidth,
+    winHeight: window.innerHeight,
+  })
   
+  const detectSize = useCallback (() => {
+    detectHW({
+      winWidth: window.innerWidth,
+      winHeight: window.innerHeight,
+    })
+  }, [])
+
   //getArtists
   const getArtists = async() => {
     try {
@@ -30,14 +40,23 @@ const App = () => {
       console.log(error)
     }
   }
-  
+
+
   useEffect(() => {
     getArtists()    
   }, [])
 
+  useEffect(() => {
+      window.addEventListener('resize', detectSize)
+      return () => {
+        window.removeEventListener('resize', detectSize)
+      }
+  }, [detectSize, windowDimension])
+  
+
   return (
       <div className="App">
-        <Header setFilterQuery={setFilterQuery} />
+        <Header setFilterQuery={setFilterQuery} winWidth={windowDimension.winWidth}/> 
         <main>
           <Routes>
             <Route exact path='/' element={<Homepage artists={artists} />} />

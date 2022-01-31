@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { FaSistrix } from 'react-icons/fa'
+import { MagnifyingGlass } from "phosphor-react";
+import '../styles/SearchBar.css';
 
 const SearchBar = ({ setFilterQuery}) => {
   const navigate = useNavigate()
@@ -19,12 +20,12 @@ const SearchBar = ({ setFilterQuery}) => {
   }
 
   return (
-    <div className='search-bar'>
-      <form onSubmit={(e) => handleQuerySubmit(e)} className='search-form'>
-        <input onChange={(e) => handleChange(e)} value={searchQuery} className='search-input' type="text" placeholder="Enter artist's name" icon={<FaSistrix />} />
-        <button className='search-button' type='submit' >Search</button>
-      </form>
-    </div>
+    <form onSubmit={(e) => handleQuerySubmit(e)} className='search-bar'>
+      <input onChange={(e) => handleChange(e)} value={searchQuery} className='search-input' type="search" placeholder="Search artist" />
+      <button className='search-button' type='submit'>
+        <MagnifyingGlass color="white" size={18} weight="bold" className='i' />
+      </button>
+    </form>
   )
 }
 

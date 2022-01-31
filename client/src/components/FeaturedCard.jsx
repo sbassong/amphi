@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
 const FeaturedCard = ({image, name, id}) => {
+  
   return (
     <Link to={`/artists/${id}`} >
     <div className='featured-card'>

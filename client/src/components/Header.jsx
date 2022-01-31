@@ -7,7 +7,7 @@ const Header = ({ setFilterQuery, winWidth}) => {
   return (
     <header>
       <NavLink className='logo' to='/'><span>Amphi</span></NavLink>
-      <SearchBar setFilterQuery={setFilterQuery} /> 
+      <SearchBar setFilterQuery={setFilterQuery} winWidth={winWidth} /> 
       <Nav winWidth={winWidth}/>
     </header>
   )

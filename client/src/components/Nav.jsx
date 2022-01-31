@@ -1,35 +1,21 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Plus, ShoppingCartSimple, MusicNotes, MicrophoneStage } from "phosphor-react";
+import { ShoppingCartSimple, MusicNotesPlus, UserPlus } from "phosphor-react";
+import HamburgerMenu from './HamburgerMenu';
 
-const smallWindow = (
-  <>
-    <NavLink to='/events'><MusicNotes size={24} color="#ffffff" weight="bold" /></NavLink>
-    <NavLink to='/artists'><MicrophoneStage size={24} color="#ffffff" weight="bold" /></NavLink>
-  </>
-)
+const smallWindowMarkup = <HamburgerMenu />
 
-const largeWindow = (
-  <>
+const largeWindowMarkup = (
+  <nav className='nav'>
     <NavLink to='/events'>Events</NavLink>
     <NavLink to='/artists'>Artists</NavLink>
-  </>
+    <NavLink to='/events/new'><UserPlus size={24} color="#ffffff" weight="bold" /></NavLink>
+    <NavLink to='/artists/new'><MusicNotesPlus size={24} color="#ffffff" weight="bold" /></NavLink>
+    <NavLink to='/cart'><ShoppingCartSimple size={24} color="#ffffff" weight="bold" /></NavLink>
+  </nav>
 )
 
+const Nav = ({ winWidth }) => (winWidth >= 450 ? largeWindowMarkup : smallWindowMarkup)
 
-const Nav = ({ winWidth }) => {
-
-  return (
-    <nav className='nav'>
-      {
-        winWidth >= 450 
-        ? largeWindow
-        : smallWindow
-      }
-      <NavLink to='/events/new'><Plus size={24} color="#ffffff" weight="bold" /></NavLink>
-      <NavLink to='/cart'><ShoppingCartSimple size={24} color="#ffffff" weight="bold" /></NavLink>
-    </nav>
-  )
-}
 
 export default Nav

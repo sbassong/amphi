@@ -1,12 +1,12 @@
 * {
-  font-family: 'Lato', sans-serif;
   text-align: center;
   box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
 }
 
 .App {
-  height: 100vh;
   width: 100%;
+  height: 100vh;
   background-color: #49404c;
 }
 
@@ -16,40 +16,40 @@ a {
 
 /* Header styles */
 header {
+  top: 0;
+  z-index: 20;
   width: 100%;
   height: 8vh;
-  background-color: #280839;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   position: sticky;
-  z-index: 20;
-  top: 0;
   padding: .7vh .7vw;
+  align-items: center;
+  background-color: #280839;
+  justify-content: space-between;
 }
 
 .logo {
-  font-family: 'Josefin Sans', sans-serif;
   font-size: 4vh;
   color: White;
   margin: auto 2vw;
   font-variant: small-caps;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .search-bar {
   width: 40%;
   display: flex;
-  /* position: relative; */
+  margin: auto 2vw;
 }
 
 .search-input {
   width: 100%;
   border: none;
-  padding: .5vh 1vh;
-  border-radius: .5vh 0 0 .5vh;
   outline: none;
   color: #280839;
   text-align: left;
+  padding: .5vh 1vh;
+  border-radius: .5vh 0 0 .5vh;
 }
 
 .search-input:focus{
@@ -59,37 +59,36 @@ header {
 .search-button {
   width: 4vh;
   height: 4vh;
-  border: .2vh solid #49404c;
-  background: #49404c;
-  text-align: center;
-  border-radius: 0 .5vh .5vh 0;
-  cursor: pointer;
-  font-size: 2vh;
   outline: none;
   padding: .5vh;
+  font-size: 2vh;
+  cursor: pointer;
+  text-align: center;
+  background: #49404c;
+  border-radius: 0 .5vh .5vh 0;
+  border: .2vh solid #49404c;
 }
 
-/* right nav styles */
 .nav {
   display: flex;
-  align-items: center;
   font-size: 2vh;
+  align-items: center;
 }
 
 .nav > a {
   color: white;
   margin: auto 1vw;
-  font-family: 'Josefin Sans', sans-serif;
   font-weight: bold;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 
 
 
 .left-h1 {
+  color: black;
   text-align: left;
   margin: 20px 0 -15px 20px;
-  color: black;
 }
 
 .featured {
@@ -99,25 +98,26 @@ header {
 }
 
 .featured-card {
-  border: 6px solid	#420066;
-  border-radius: 7px;
   margin: 10px;
   height: 300px; 
   min-width: 250px;
   max-width: 250px; 
   overflow-x: hidden;
   overflow-y: hidden;
+  border-radius: 7px;
+  border: 6px solid	#420066;
   background-color: #a600ff;
 
-    display: inline-block;
-    vertical-align: middle;
-    transform: translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    backface-visibility: hidden;
-    -moz-osx-font-smoothing: grayscale;
-    transition-duration: 0.3s;
-    transition-property: transform;
+  display: inline-block;
+  vertical-align: middle;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  transition-duration: 0.3s;
+  transition-property: transform;
+  -moz-osx-font-smoothing: grayscale;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 }
+
 .featured-card:hover {
   border: 6px solid black;
   transform: scale(0.9)
@@ -135,9 +135,9 @@ header {
 }
 
 img {
-  border-bottom: 3px solid #420066;
   height: 100%;
   width: 100%;
+  border-bottom: 3px solid #420066;
 }
 
 .artist-container {
@@ -145,8 +145,8 @@ img {
 }
 
 .events-cont {
-  margin-top: 50px;
   display: grid;
+  margin-top: 50px;
   grid-template: auto / repeat(4, 1fr);
 }
 
@@ -154,10 +154,10 @@ img {
   display: flex;
   width: 90%;
   height: 90%;
-  border: 4px solid 	#420066;
   border-radius: 7px;
   margin: 10px auto;
   padding: 2px;
+  border: 4px solid 	#420066;
 }
 
 .listing-h2 {

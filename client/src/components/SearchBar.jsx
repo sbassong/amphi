@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { MagnifyingGlass } from "phosphor-react";
-import '../styles/SearchBar.css';
 
-const SearchBar = ({ setFilterQuery}) => {
+const SearchBar = ({ setFilterQuery, winWidth}) => {
   const navigate = useNavigate()
   const [searchQuery, setSearchQuery] = useState('')
 
@@ -22,8 +21,8 @@ const SearchBar = ({ setFilterQuery}) => {
   return (
     <form onSubmit={(e) => handleQuerySubmit(e)} className='search-bar'>
       <input onChange={(e) => handleChange(e)} value={searchQuery} className='search-input' type="search" placeholder="Search artist" />
-      <button className='search-button' type='submit'>
-        <MagnifyingGlass color="white" size={18} weight="bold" className='i' />
+      <button className='search-button' type='submit' disabled={searchQuery ? false : true}>
+        <MagnifyingGlass color="white" size={winWidth >= 450 ? 18 : 12} weight="bold" className='i' />
       </button>
     </form>
   )

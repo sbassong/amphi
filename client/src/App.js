@@ -32,19 +32,19 @@ const App = () => {
   }, [])
 
   //getArtists
-  const getArtists = async() => {
+  const getArtists = useCallback(async() => {
     try {
       const res = await Axios.get(`${BASE_URL}/artists`)
       setArtists(res.data)
     } catch (error) {
       console.log(error)
     }
-  }
+  }, [])
 
 
   useEffect(() => {
     getArtists()    
-  }, [])
+  }, [getArtists])
 
   useEffect(() => {
       window.addEventListener('resize', detectSize)

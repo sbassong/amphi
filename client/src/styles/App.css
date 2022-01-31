@@ -84,47 +84,57 @@ header {
 
 
 
+.homepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .left-h1 {
   color: black;
   text-align: left;
-  margin: 20px 0 -15px 20px;
+  font-size: 3vh;
+  margin-left: 2vw;
+  margin-bottom: .2vh;
 }
 
 .featured {
   display: flex;
   overflow-y: hidden;
-  margin: 20px 5px 20px 5px;
+  overflow-x: auto;
+  margin-left: 2vw;
+  height: 20vh;
+  align-items: center;
 }
 
 .featured-card {
-  margin: 10px;
-  height: 300px; 
-  min-width: 250px;
-  max-width: 250px; 
+  margin: 1vh;
+  height: 18vh; 
+  width: 15vh;
   overflow-x: hidden;
   overflow-y: hidden;
-  border-radius: 7px;
-  border: 6px solid	#420066;
+  border-radius: .75vh;
+  border: .5vh solid	#420066;
   background-color: #a600ff;
 
   display: inline-block;
   vertical-align: middle;
   transform: translateZ(0);
-  backface-visibility: hidden;
   transition-duration: 0.3s;
+  backface-visibility: hidden;
   transition-property: transform;
   -moz-osx-font-smoothing: grayscale;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 }
 
 .featured-card:hover {
-  border: 6px solid black;
+  border: .5vh solid black;
   transform: scale(0.9)
 }
 
 .featured-cont {
-  height: 87.5%;
+  height: 100%;
   width: 100%;
 }
 

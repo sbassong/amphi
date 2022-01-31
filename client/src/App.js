@@ -31,7 +31,7 @@ const App = () => {
     })
   }, [])
 
-  //getArtists
+
   const getArtists = useCallback(async() => {
     try {
       const res = await Axios.get(`${BASE_URL}/artists`)

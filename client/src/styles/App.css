@@ -85,11 +85,14 @@ header {
 
 
 .homepage {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
   width: 100%;
+}
+
+.featured-section {
+  width: 85%;
+  height: 25%;
+  margin: 2% auto;
 }
 
 .left-h1 {
@@ -100,36 +103,36 @@ header {
   margin-bottom: .2vh;
 }
 
+
 .featured {
   /* width: 80%; */
   display: grid;  
-  margin-left: 2vw;
-  /* height: 20vh; */
   align-items: center;
-  grid-gap: 3vw;  
-  grid-template-columns: repeat(auto-fit, minmax(15px, 25%));
-  grid-template-rows: auto
+  grid-gap: 5%;  
+  grid-template-columns: repeat(auto-fit, 30%);
+  grid-template-rows: auto;
 }
 
 .featured-card {
   margin: 1vh;
   width: 100%;
-  border-radius: 1vh;
-  background-color: #280839;
+  height: auto;
+  border-radius: .75vh;
 
   display: inline-block;
-  vertical-align: middle;
-  transform: translateZ(0);
+  /* vertical-align: middle; */
+  /* transform: translateZ(0);
   transition-duration: 0.3s;
   backface-visibility: hidden;
-  transition-property: transform;
+  transition-property: transform; */
+  transition: transform 0.25s ease-in-out 0s, filter 80ms linear 0s;
   -moz-osx-font-smoothing: grayscale;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 }
 
 .featured-card:hover {
   border: .5vh solid black;
-  transform: scale(0.9)
+  /* transform: scale(0.9) */
 }
 
 .featured-cont {

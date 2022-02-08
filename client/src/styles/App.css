@@ -89,34 +89,33 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .left-h1 {
-  color: black;
+  color: white;
   text-align: left;
-  font-size: 3vh;
+  font-size: 2.5vh;
   margin-left: 2vw;
   margin-bottom: .2vh;
 }
 
 .featured {
-  display: flex;
-  overflow-y: hidden;
-  overflow-x: auto;
+  /* width: 80%; */
+  display: grid;  
   margin-left: 2vw;
-  height: 20vh;
+  /* height: 20vh; */
   align-items: center;
+  grid-gap: 3vw;  
+  grid-template-columns: repeat(auto-fit, minmax(15px, 25%));
+  grid-template-rows: auto
 }
 
 .featured-card {
   margin: 1vh;
-  height: 18vh; 
-  width: 15vh;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  border-radius: .75vh;
-  border: .5vh solid	#420066;
-  background-color: #a600ff;
+  width: 100%;
+  border-radius: 1vh;
+  background-color: #280839;
 
   display: inline-block;
   vertical-align: middle;
@@ -149,6 +148,44 @@ img {
   width: 100%;
   border-bottom: 3px solid #420066;
 }
+
+
+#projects > div {
+  margin: 4vh auto 15vh auto;
+  display: grid;  
+  grid-gap: 8vh;  
+  grid-template-columns: repeat(2, 32vh);
+  grid-template-rows: repeat(2, 22vh);
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 800px) {
+  #projects > div {
+    grid-gap: 5vh;  
+    grid-template-columns: repeat(2, 24vh);
+    grid-template-rows: repeat(2, 17vh);
+  }
+}
+@media screen and (max-width: 600px) {
+  #projects > div {
+    margin: 4vh auto 10vh auto;
+    grid-gap: 4vh;  
+    grid-template-columns: repeat(1, 28vh);
+    grid-template-rows: repeat(4, 20vh);
+  }
+}
+
+.project-card {
+  background-color: rgb(207, 196, 130, 0.3);
+  border-radius: .7vh;
+  width: 100%;
+  height: 100%;
+  margin: 2vh auto;
+  padding: .5vh;
+}
+
+
+
 
 .artist-container {
   margin-top: 50px;

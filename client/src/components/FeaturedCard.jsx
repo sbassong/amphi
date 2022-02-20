@@ -6,9 +6,9 @@ const FeaturedCard = ({image, name, id}) => {
   }
 
   return (
-    <Link className="card-wrapper" to={`/artists/${id}`} >
+    <Link className="feat-card-wrap" to={`/artists/${id}`} >
     <div className='featured-card' style={backgroundStyle}>
-        <div className='fg-info'>{name}</div>
+        <p className='card-info'>{name}</p>
     </div>
     </Link >
   )

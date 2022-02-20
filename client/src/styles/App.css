@@ -8,7 +8,7 @@ html {
 }
 
 * {
-  text-align: center;
+  /* text-align: center; */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -22,6 +22,11 @@ html {
 
 a {
   text-decoration: none;
+}
+
+img {
+  height: 100%;
+  width: 100%;
 }
 
 /* Header styles */
@@ -93,6 +98,7 @@ header {
 }
 
 
+/* HOMEPAGE STYLES */
 
 .homepage {
   height: 100%;
@@ -115,14 +121,12 @@ header {
   margin-bottom: 2vh;
 }
 
-
 .featured {
   width: 100%;
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(auto-fit,  20vw);
   margin: 1em auto;
-  border: 1px solid red;
   justify-content: center;
 }
 
@@ -142,10 +146,15 @@ header {
   }
 }
 
-.card-wrapper {
+.feat-card-wrap {
   height: 100%;
   width: auto;
   border-radius: .5em;
+}
+
+.feat-card-wrap > * {
+  position: relative;
+  z-index: 2;
 }
 
 .featured-card {
@@ -155,74 +164,26 @@ header {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center center;
-
-  display: inline-block;
-  vertical-align: middle;
-  /* transform: translateZ(0);
-  transition-duration: 0.3s;
-  backface-visibility: hidden;
-  transition-property: transform; */
+  
   transition: background-size 0.25s ease-in-out 0s, filter 80ms linear 0s;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .featured-card:hover {
-  /* transform: scale(0.95) */
   background-size: 110%;
 }
 
-.featured-cont {
-  height: 100%;
-  width: 100%;
-}
-
-.featured-h1 {
-  margin-top: 3px;
+.card-info {
+  line-height: 1.5;
   color: white;
-  font-size: x-large;
+  background-color: rgba(0, 0, 0, .6);
+  width: fit-content;
+  padding: .5em 1em;
+  border-radius: .5em;
+  position: absolute;
+  bottom: .5em;
+  left: .5em;
 }
-
-img {
-  height: 100%;
-  width: 100%;
-  border-bottom: 3px solid #420066;
-}
-
-
-#projects > div {
-  margin: 4vh auto 15vh auto;
-  display: grid;  
-  grid-gap: 8vh;  
-  grid-template-columns: repeat(2, 32vh);
-  grid-template-rows: repeat(2, 22vh);
-  justify-content: center;
-  align-items: center;
-}
-@media screen and (max-width: 800px) {
-  #projects > div {
-    grid-gap: 5vh;  
-    grid-template-columns: repeat(2, 24vh);
-    grid-template-rows: repeat(2, 17vh);
-  }
-}
-@media screen and (max-width: 600px) {
-  #projects > div {
-    margin: 4vh auto 10vh auto;
-    grid-gap: 4vh;  
-    grid-template-columns: repeat(1, 28vh);
-    grid-template-rows: repeat(4, 20vh);
-  }
-}
-
-.project-card {
-  background-color: rgb(207, 196, 130, 0.3);
-  border-radius: .7vh;
-  width: 100%;
-  height: 100%;
-  margin: 2vh auto;
-  padding: .5vh;
-}
-
 
 
 

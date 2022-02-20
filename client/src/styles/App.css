@@ -1,13 +1,23 @@
+
+html {
+  background: #49404c no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 * {
   text-align: center;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
 }
 
 .App {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  background-color: #49404c;
 }
 
 a {
@@ -87,12 +97,14 @@ header {
 .homepage {
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .featured-section {
-  width: 85%;
-  height: 25%;
-  margin: 2% auto;
+  width: 90%;
+  margin: 2vh auto;
 }
 
 .left-h1 {
@@ -100,39 +112,63 @@ header {
   text-align: left;
   font-size: 2.5vh;
   margin-left: 2vw;
-  margin-bottom: .2vh;
+  margin-bottom: 2vh;
 }
 
 
 .featured {
-  /* width: 80%; */
-  display: grid;  
-  align-items: center;
-  grid-gap: 5%;  
-  grid-template-columns: repeat(auto-fit, 30%);
-  grid-template-rows: auto;
+  width: 100%;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit,  20vw);
+  margin: 1em auto;
+  border: 1px solid red;
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .featured {
+    gap: 1em;
+    grid-template-columns: repeat(auto, 40vw);
+    grid-template-rows: repeat(auto, 32vw)
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .featured {
+    gap: .8em;
+    grid-template-columns: repeat(2, 40vw);
+    grid-template-rows: repeat(2, 32vw)
+  }
+}
+
+.card-wrapper {
+  height: 100%;
+  width: auto;
+  border-radius: .5em;
 }
 
 .featured-card {
-  margin: 1vh;
+  height: 10em;
   width: 100%;
-  height: auto;
-  border-radius: .75vh;
+  border-radius: .5em;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center center;
 
   display: inline-block;
-  /* vertical-align: middle; */
+  vertical-align: middle;
   /* transform: translateZ(0);
   transition-duration: 0.3s;
   backface-visibility: hidden;
   transition-property: transform; */
-  transition: transform 0.25s ease-in-out 0s, filter 80ms linear 0s;
+  transition: background-size 0.25s ease-in-out 0s, filter 80ms linear 0s;
   -moz-osx-font-smoothing: grayscale;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 }
 
 .featured-card:hover {
-  border: .5vh solid black;
-  /* transform: scale(0.9) */
+  /* transform: scale(0.95) */
+  background-size: 110%;
 }
 
 .featured-cont {
@@ -287,3 +323,5 @@ p {
   height: 50%;
   margin: 20px auto;
 }
+
+

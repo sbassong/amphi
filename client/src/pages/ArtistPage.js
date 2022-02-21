@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
-import Listing from '../components/Listing'
+import ListingLargeMarkup from '../components/ListingLargeMarkup'
+import ListingSmallMarkup from '../components/ListingSmallMarkup'
 import ArtistSection from '../components/ArtistSection'
 
-const ArtistPage = ({artist}) => {
+const ArtistPage = ({artist, winWidth}) => {
   const [artistEvents, updateEvents] = useState([])
 
   const getEventsByArtistName = async (artistName) => {
@@ -23,9 +24,11 @@ const ArtistPage = ({artist}) => {
   return (
     <div className='artist-page'>
       <ArtistSection image={artist.image} name={artist.name} description={artist.description}/>
-      <div className='artist-events'>
+      <div className='events-cont'>
         {artistEvents !== [] && artistEvents.map(event => (
-          <Listing key={event.event_id} id={event._id} name={event.event_name} venue={event.venue} date={event.date} time={event.time} location={event.location}/>
+          winWidth >= 480
+          ? <ListingLargeMarkup key={event.event_id} id={event._id} name={event.event_name} venue={event.venue} date={event.date} time={event.time} location={event.location}/>
+          : <ListingSmallMarkup key={event.event_id} id={event._id} name={event.event_name} venue={event.venue} date={event.date} time={event.time} location={event.location}/>
         ))}
       </div>
     </div>

@@ -15,7 +15,7 @@ const largeWindowMarkup = (
   </nav>
 )
 
-const Nav = ({ winWidth }) => (winWidth >= 450 ? largeWindowMarkup : smallWindowMarkup)
+const Nav = ({ winWidth }) => (winWidth >= 600 ? largeWindowMarkup : smallWindowMarkup)
 
 
 export default Nav

@@ -23,13 +23,17 @@ const ListingSmallMarkup = ({ artist, date, time, venue, location, name}) => {
   
   return (
     <div className='event-list'>
-      <section className='e-sec-small-1'>
-        <p className=''>{name}</p>
-        <p>{venue} - {location}</p>
-        <p>{date} at {time}</p> 
-      </section>
+      <section className='e-sec-1'>
+        <div className='e-name-wrap'>
+          <p className='p-name'>{name}</p>
+          <p className='p-loc'>{venue} - {location}</p>
+          <p className='p-time'>{date} at {time}</p> 
+        </div>
 
-      <button onClick={() => addToCart()} className='e-add-but' label='Add to cart' size='small'>Add to Card</button>
+        <div className='e-but-wrap'>
+          <button onClick={() => addToCart()} className='e-add-but' label='Add to cart' size='small'>Find tickets</button>
+        </div>
+      </section>
     </div>
   )
 }

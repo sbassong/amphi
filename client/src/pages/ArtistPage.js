@@ -24,9 +24,10 @@ const ArtistPage = ({artist, winWidth}) => {
   return (
     <div className='artist-page'>
       <ArtistSection image={artist.image} name={artist.name} description={artist.description}/>
+      <h1 className='left-h1 upcoming-e'>All upcoming events:</h1>
       <div className='events-cont'>
         {artistEvents !== [] && artistEvents.map(event => (
-          winWidth >= 480
+          winWidth >= 600
           ? <ListingLargeMarkup key={event.event_id} id={event._id} name={event.event_name} venue={event.venue} date={event.date} time={event.time} location={event.location}/>
           : <ListingSmallMarkup key={event.event_id} id={event._id} name={event.event_name} venue={event.venue} date={event.date} time={event.time} location={event.location}/>
         ))}

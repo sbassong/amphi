@@ -8,7 +8,7 @@ const FeaturedSection = ({artists, category}) => {
       <div className='featured'>
         {
           artists.length > 0 && artists.filter(artist => artist.genre.toLowerCase() === category).map((artist, index)=> (
-            index < 4 && <FeaturedCard key={artist._id} image={artist.image} name={artist.name} id={artist._id} />
+            index < 4 && <FeaturedCard index={index} key={artist._id} image={artist.image} name={artist.name} id={artist._id} />
         ))}
       </div>
     </section>

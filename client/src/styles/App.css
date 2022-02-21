@@ -110,39 +110,68 @@ header {
 
 .featured-section {
   width: 90%;
-  margin: 2vh auto;
+  margin: 2vmax auto;
 }
 
 .left-h1 {
   color: white;
   text-align: left;
-  font-size: 2.5vh;
+  font-size: clamp( .8em, 1.5vw, 2em);
   margin-left: 2vw;
-  margin-bottom: 2vh;
+  margin-bottom: 2vmax;
 }
 
 .featured {
   width: 100%;
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit,  20vw);
+  grid-template-columns: repeat(auto-fit, 20vw);
   margin: 1em auto;
   justify-content: center;
 }
 
 @media screen and (max-width: 768px) {
   .featured {
-    gap: 1em;
-    grid-template-columns: repeat(auto, 40vw);
-    grid-template-rows: repeat(auto, 32vw)
+    gap: 1.5em;
+    grid-template-columns: repeat(auto-fit, 25vw);
+    grid-template-rows: calc(.75 * 25vw)
+  }
+
+  .card-3 {
+    display: none;
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .featured {
-    gap: .8em;
-    grid-template-columns: repeat(2, 40vw);
-    grid-template-rows: repeat(2, 32vw)
+    grid-template-columns: repeat(auto-fit, 40vw);
+    grid-template-rows: calc(.5 * 40vw);
+  }
+
+  .card-3, .card-2 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 450px) {
+
+  .featured-section {
+    height: 25vh;
+  }
+
+  .featured {
+    grid-template-columns: repeat(auto-fit, 70vw);
+    grid-template-rows: calc(.5 * 40vw);
+  }
+
+  .card-3, .card-2, .card-1 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .featured-section {
+    height: 30vh;
   }
 }
 
@@ -158,11 +187,12 @@ header {
 }
 
 .featured-card {
+  box-sizing: border-box;
   height: 10em;
   width: 100%;
   border-radius: .5em;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   background-position: center center;
   
   transition: background-size 0.25s ease-in-out 0s, filter 80ms linear 0s;
@@ -178,11 +208,12 @@ header {
   color: white;
   background-color: rgba(0, 0, 0, .6);
   width: fit-content;
-  padding: .5em 1em;
+  padding: 1vw;
   border-radius: .5em;
   position: absolute;
   bottom: .5em;
   left: .5em;
+  font-size: clamp( .7em, 1.2vw, 1em)
 }
 
 

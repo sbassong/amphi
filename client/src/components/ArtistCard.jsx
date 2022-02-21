@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom'
 
 const ArtistCard = ({id, image, name}) => {
+  const backgroundStyle = {
+    backgroundImage: `url(${image})`,
+  }
+
   return (
-    <Link to={`/artists/${id}`} >
-        <div className='featured-card'>
-          <div className='featured-cont'><img src={image} alt="" /></div>
-          <h1 className='featured-h1'>{name}</h1>
+    <Link className="feat-card-wrap" to={`/artists/${id}`} >
+      <div className='featured-card' style={backgroundStyle}>
+        <p className='card-info'>{name}</p>
       </div>
     </Link>
   )

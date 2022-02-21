@@ -37,7 +37,7 @@ const App = () => {
       const res = await Axios.get(`${BASE_URL}/artists`)
       setArtists(res.data)
     } catch (error) {
-      console.log(error)
+      throw(error)
     }
   }, [])
 

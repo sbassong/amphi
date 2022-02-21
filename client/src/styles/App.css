@@ -126,27 +126,18 @@ header {
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(auto-fit, 20vw);
-  margin: 1em auto;
   justify-content: center;
+  margin: auto
 }
 
 .artist-container {
-  grid-template-columns: repeat(auto-fit, 20vw);
-  grid-template-rows: repeat(auto-fit, calc(.75 * 20vw));
-  margin-top: 10vh;
+  width: 90%;
+  margin-top: 8vmin;
 }
 
 @media screen and (max-width: 768px) {
-  .featured {
-    gap: 1.5em;
-    grid-template-columns: repeat(auto-fit, 25vw);
-    grid-template-rows: calc(.75 * 25vw);
-  }
-
-  
-  .artist-container {
-    grid-template-columns: repeat(auto-fit, 23vw);
-    grid-template-rows: repeat(auto-fit, calc(.75 * 23vw));
+  .featured, .artist-container {
+    grid-template-columns: repeat(auto-fit, 26vw);
   }
 
   .card-3 {
@@ -155,45 +146,26 @@ header {
 }
 
 @media screen and (max-width: 600px) {
-  .featured {
-    grid-template-columns: repeat(auto-fit, 40vw);
-    grid-template-rows: calc(.5 * 40vw);
+  .featured, .artist-container {
+    grid-template-columns: repeat(auto-fit, 30vw);
   }
-  
-  
-  .artist-container {
-    grid-template-columns: repeat(auto-fit, 40vw);
-    grid-template-rows: repeat(auto-fit, calc(.75 * 40vw));
-  }
+
   .card-3, .card-2 {
     display: none;
   }
 }
 
 @media screen and (max-width: 450px) {
-  
-  .featured-section {
-    height: 25vh;
-  }
-  
   .featured {
     grid-template-columns: repeat(auto-fit, 70vw);
-    grid-template-rows: calc(.5 * 40vw);
   }
   
   .artist-container {
     grid-template-columns: repeat(auto-fit, 70vw);
   }
   
-  
   .card-3, .card-2, .card-1 {
     display: none;
-  }
-}
-
-@media screen and (max-width: 300px) {
-  .featured-section {
-    height: 30vh;
   }
 }
 
@@ -222,12 +194,12 @@ header {
 }
 @media screen and (max-width: 768px) {
   .featured-card {
-    height: 9em;
+    height: 8em;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 480px) {
   .featured-card {
-    height: 8em;
+    height: 7.5em;
   }
 }
 
@@ -236,11 +208,12 @@ header {
 }
 
 .card-info {
+  height: auto;
   line-height: 1.5;
   color: white;
   background-color: rgba(0, 0, 0, .6);
   width: fit-content;
-  padding: 1vw;
+  padding: 1vmin;
   border-radius: .5em;
   position: absolute;
   bottom: .5em;

@@ -334,7 +334,7 @@ header {
 
 
 /* ARTIST SECTION STYLES */
-.artist-page {
+.artist-page, .cart {
   width: 80%;
   margin: 0 auto;
   padding-top: 5vmin;

@@ -7,7 +7,7 @@ import { BASE_URL } from '../globals'
 const ListingSmallMarkup = ({ id, artist, date, time, venue, location, name }) => {
   const [favorited, toggleFavorited] = useState(false)
 
-  const likeEvent = useCallback(async (e) => {
+  const likeEvent = useCallback(async () => {
     const newCartItemData = {
       event_name: name,
       date: date,
@@ -18,7 +18,6 @@ const ListingSmallMarkup = ({ id, artist, date, time, venue, location, name }) =
     }
 
     try {
-      await e
       await Axios.post(`${BASE_URL}/cart/new`, newCartItemData)
       toggleFavorited(true)
     } catch (error) {
@@ -49,7 +48,7 @@ const ListingSmallMarkup = ({ id, artist, date, time, venue, location, name }) =
           {
             favorited
               ? <button onClick={() => unlikeEvent()} className='e-fav-but' label='Add to cart' ><MdFavorite /></button>
-              : <button onClick={(e) => likeEvent(e)} className='e-fav-but' label='Add to cart' ><MdFavoriteBorder /></button>
+              : <button onClick={() => likeEvent()} className='e-fav-but' label='Add to cart' ><MdFavoriteBorder /></button>
           }
         </div>
       </section>

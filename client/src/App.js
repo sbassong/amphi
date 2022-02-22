@@ -59,7 +59,7 @@ const App = () => {
           <Routes>
             <Route exact path='/' element={<Homepage artists={artists} />} />
             <Route exact path='/artists' element={<ArtistsList artists={artists} />} />
-            <Route exact path='/favorites' element={<Favorites Axios={Axios} BASE_URL={BASE_URL}/>} />
+            <Route exact path='/favorites' element={<Favorites Axios={Axios} BASE_URL={BASE_URL} winWidth={windowDimension.winWidth}/>} />
             <Route exact path='/artists/new' element={<CreateArtist />} />
             <Route exact path='/artists/search_results' element={<SearchResults artists={artists} filterQuery={filterQuery} />} />
             {

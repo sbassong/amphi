@@ -1,12 +1,15 @@
-import { useState, useEffect } from 'react'
-import CartItem from "../components/CartItem"
+import { useState, useEffect, useCallback } from 'react'
+import Axios from 'axios'
+import { BASE_URL } from '../globals'
+import FavoriteLargeMarkup from '../components/FavoriteLargeMarkup'
+import FavoriteSmallMarkup from '../components/FavoriteSmallMarkup'
 
 
-const Favorites = ({Axios, BASE_URL}) => {
+const Favorites = ({winWidth}) => {
   const [cartItems, updateCart] = useState([])
 
   
-  const deleteItem = (id) => {
+  const unlikeEvent = useCallback((id) => {
     try {
       Axios.delete(`${BASE_URL}/cart/${id}`)
       let updatedCartItems = cartItems.filter(item => item._id !== id)
@@ -14,7 +17,7 @@ const Favorites = ({Axios, BASE_URL}) => {
     } catch (error) {
       throw error
     }
-  }
+  }, [cartItems])
   
   useEffect(() => {
     const getItems = async() => {
@@ -22,21 +25,22 @@ const Favorites = ({Axios, BASE_URL}) => {
         const res = await Axios.get(`${BASE_URL}/cart`)
         updateCart(res.data)
       } catch (error) {
-        console.log(error)
+        throw error
       }
     }
     getItems() 
-  }, [Axios, BASE_URL])
+  }, [])
 
   return (
     <div className='cart'>
-      <h1>Cart Items:</h1>
-      {cartItems.length > 0 && cartItems.map((item, index) => (
-        <div className='cart-cont'>
-          <CartItem key={item._id} id={item._id} name={item.event_name} venue={item.venue} date={item.date} time={item.time} location={item.location} artist={item.artist} />
-          <button key={index} onClick={() => deleteItem(item._id)} className='delete-button'>remove</button>
-        </div>
-      ))}
+      <h1 className='left-h1 upcoming-e'>Your favorite events:</h1>
+      <div className='events-cont'>
+        {cartItems !== [] && cartItems.map(event => (
+          winWidth >= 600
+          ? <FavoriteLargeMarkup key={event.event_id} unlikeEv={() => unlikeEvent(event._id)} id={event._id} name={event.event_name} venue={event.venue} date={event.date} time={event.time} location={event.location}/>
+          : <FavoriteSmallMarkup key={event.event_id} unlikeEv={() => unlikeEvent(event._id)} id={event._id} name={event.event_name} venue={event.venue} date={event.date} time={event.time} location={event.location}/>
+        ))}
+      </div>
     </div>
   )
 }

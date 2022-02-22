@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useCallback} from 'react'
-import axios from 'axios'
+import Axios from 'axios'
 import { BASE_URL } from '../globals'
 import ListingLargeMarkup from '../components/ListingLargeMarkup'
 import ListingSmallMarkup from '../components/ListingSmallMarkup'
@@ -10,7 +10,7 @@ const ArtistPage = ({artist, winWidth}) => {
 
   const getEventsByArtistName = useCallback(async (artistName) => {
     try {
-      const res = await axios.get(`${BASE_URL}/artists/id/${artistName}`)
+      const res = await Axios.get(`${BASE_URL}/artists/id/${artistName}`)
       updateEvents(res.data)
     } catch (error) {
       console.log(error)

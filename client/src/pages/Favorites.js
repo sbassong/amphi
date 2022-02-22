@@ -31,6 +31,7 @@ const Favorites = ({winWidth}) => {
     getItems() 
   }, [])
 
+  
   return (
     <div className='cart'>
       <h1 className='left-h1 upcoming-e'>Your favorite events:</h1>

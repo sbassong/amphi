@@ -10,9 +10,8 @@ import Homepage from './pages/Homepage.js'
 import ArtistsList from './pages/ArtistsList'
 import ArtistPage from './pages/ArtistPage'
 import CreateArtist from './pages/CreateArtist'
-import CreateEvent from './pages/CreateEvent'
 import SearchResults from './pages/SearchResults'
-import Cart from './pages/Cart';
+import Favorites from './pages/Favorites';
 
 
 const App = () => {
@@ -60,8 +59,7 @@ const App = () => {
           <Routes>
             <Route exact path='/' element={<Homepage artists={artists} />} />
             <Route exact path='/artists' element={<ArtistsList artists={artists} />} />
-            <Route exact path='/cart' element={<Cart Axios={Axios} BASE_URL={BASE_URL}/>} />
-            <Route exact path='/events/new' element={<CreateEvent />} />
+            <Route exact path='/favorites' element={<Favorites Axios={Axios} BASE_URL={BASE_URL}/>} />
             <Route exact path='/artists/new' element={<CreateArtist />} />
             <Route exact path='/artists/search_results' element={<SearchResults artists={artists} filterQuery={filterQuery} />} />
             {

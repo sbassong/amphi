@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useCallback} from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 import ListingLargeMarkup from '../components/ListingLargeMarkup'
@@ -8,18 +8,18 @@ import ArtistSection from '../components/ArtistSection'
 const ArtistPage = ({artist, winWidth}) => {
   const [artistEvents, updateEvents] = useState([])
 
-  const getEventsByArtistName = async (artistName) => {
+  const getEventsByArtistName = useCallback(async (artistName) => {
     try {
       const res = await axios.get(`${BASE_URL}/artists/id/${artistName}`)
       updateEvents(res.data)
     } catch (error) {
       console.log(error)
     }
-  }
+  }, [])
   
   useEffect(() => {
     getEventsByArtistName(artist.name)
-  }, [artist.name])
+  }, [artist.name, getEventsByArtistName])
 
   return (
     <div className='artist-page'>

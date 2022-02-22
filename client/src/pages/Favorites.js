@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import CartItem from "../components/CartItem"
 
 
-const Cart = ({Axios, BASE_URL}) => {
+const Favorites = ({Axios, BASE_URL}) => {
   const [cartItems, updateCart] = useState([])
 
   
@@ -41,4 +41,4 @@ const Cart = ({Axios, BASE_URL}) => {
   )
 }
 
-export default Cart
+export default Favorites

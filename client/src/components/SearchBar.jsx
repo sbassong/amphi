@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { MagnifyingGlass } from "phosphor-react";
+import { MdSearch } from "react-icons/md";
 
 const SearchBar = ({ setFilterQuery, winWidth}) => {
   const navigate = useNavigate()
@@ -22,7 +22,7 @@ const SearchBar = ({ setFilterQuery, winWidth}) => {
     <form onSubmit={(e) => handleQuerySubmit(e)} className='search-bar'>
       <input onChange={(e) => handleChange(e)} value={searchQuery} className='search-input' type="search" placeholder="Search artist" />
       <button className='search-button' type='submit' disabled={searchQuery ? false : true}>
-        <MagnifyingGlass color="white" size={winWidth >= 450 ? 18 : 12} weight="bold" className='i' />
+        <MdSearch color="white" className='i' />
       </button>
     </form>
   )

@@ -8,11 +8,9 @@ const menuMarkup = (
         <div class='menu-button'></div>
       </label>
       <ul class="menu">
-        <li><NavLink to='/events'>Events</NavLink></li>
         <li><NavLink to='/artists'>Artists</NavLink></li>
-        <li><NavLink to='/events/new'>Register new event</NavLink></li>
-        <li><NavLink to='/artists/new'>Register new artist</NavLink></li>
-        <li><NavLink to='/cart'>Cart</NavLink></li>
+        <li><NavLink to='/favorites'>Favorites</NavLink></li>
+        <li><NavLink to='/artists/new'>Register artist</NavLink></li>
       </ul>
     </>
   )

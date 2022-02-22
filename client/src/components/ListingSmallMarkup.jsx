@@ -1,10 +1,13 @@
-import React from 'react'
-import axios from 'axios'
+import React, { useCallback, useState } from 'react'
+import Axios from 'axios'
+import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import { BASE_URL } from '../globals'
 
-const ListingSmallMarkup = ({ artist, date, time, venue, location, name}) => {
 
-  const addToCart = async () => {
+const ListingSmallMarkup = ({ id, artist, date, time, venue, location, name }) => {
+  const [favorited, toggleFavorited] = useState(false)
+
+  const likeEvent = useCallback(async (e) => {
     const newCartItemData = {
       event_name: name,
       date: date,
@@ -13,13 +16,24 @@ const ListingSmallMarkup = ({ artist, date, time, venue, location, name}) => {
       location: location,
       artist: artist
     }
-    
+
     try {
-      await axios.post(`${BASE_URL}/cart/new`, newCartItemData)
+      await e
+      await Axios.post(`${BASE_URL}/cart/new`, newCartItemData)
+      toggleFavorited(true)
     } catch (error) {
       throw error
     }
-  }
+  }, [artist, date, location, name, time, venue])
+
+  const unlikeEvent = useCallback(() => {
+    try {
+      Axios.delete(`${BASE_URL}/cart/${id}`)
+      toggleFavorited(!favorited)
+    } catch (error) {
+      throw error
+    }
+  }, [favorited, id])
   
   return (
     <div className='event-list'>
@@ -31,7 +45,12 @@ const ListingSmallMarkup = ({ artist, date, time, venue, location, name}) => {
         </div>
 
         <div className='e-but-wrap'>
-          <button onClick={() => addToCart()} className='e-add-but' label='Add to cart' size='small'>Find tickets</button>
+          <button onClick='' className='e-add-but' label='Add to cart' size='small'>Find tickets</button>
+          {
+            favorited
+              ? <button onClick={() => unlikeEvent()} className='e-fav-but' label='Add to cart' ><MdFavorite /></button>
+              : <button onClick={(e) => likeEvent(e)} className='e-fav-but' label='Add to cart' ><MdFavoriteBorder /></button>
+          }
         </div>
       </section>
     </div>

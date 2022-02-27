@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-require('dotenv').config({ path: 'ENV_FILENAME' })
+require('dotenv').config()
 
 let dbUrl = process.env.NODE_ENV === 'production' ? process.env.MONGODB_URI : 'mongodb://127.0.0.1:27017/amphiDB'
 

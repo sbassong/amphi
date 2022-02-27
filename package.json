@@ -9,7 +9,7 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.12"
   },
-  "name": "amphi_mern",
+  "name": "amphi",
   "description": "## Date: 8/27/2021",
   "version": "1.0.0",
   "main": "index.js",
@@ -22,13 +22,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sbassong/Amphi_MERN.git"
+    "url": "git+https://github.com/sbassong/amphi.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sbassong/Amphi_MERN/issues"
+    "url": "https://github.com/sbassong/amphi/issues"
   },
-  "homepage": "https://github.com/sbassong/Amphi_MERN#readme"
+  "homepage": "https://github.com/sbassong/amphi#readme"
 }

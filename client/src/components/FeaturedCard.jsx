@@ -1,11 +1,16 @@
-import React from 'react'
+import { Link } from 'react-router-dom'
 
-const FeaturedCard = ({image, name}) => {
+const FeaturedCard = ({image, name, id, index}) => {
+  const backgroundStyle = {
+    backgroundImage: `url(${image})`,
+  }
+
   return (
-    <div className='featured-card'>
-        <div className='featured-cont'><img src={image} alt={name} /></div>
-        <h1 className='featured-h1' >{name}</h1>
-    </div>
+    <Link className={`feat-card-wrap card-${index}`} to={`/artists/${id}`} >
+      <div className='featured-card' style={backgroundStyle}>
+          <p className='card-info'>{name}</p>
+      </div>
+    </Link >
   )
 }
 

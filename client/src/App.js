@@ -1,114 +1,73 @@
-import React, { useState, useEffect } from 'react'
-import { Route, Switch, useHistory} from 'react-router-dom';
-import './App.css';
+import { useState, useEffect, useCallback } from 'react'
+import { Route, Routes} from 'react-router-dom'
+import './styles/App.css';
 
-import axios from 'axios'
+import Axios from 'axios'
 import { BASE_URL } from './globals'
 
 import Header from './components/Header'
 import Homepage from './pages/Homepage.js'
-import EventsList from './pages/EventsList'
 import ArtistsList from './pages/ArtistsList'
 import ArtistPage from './pages/ArtistPage'
 import CreateArtist from './pages/CreateArtist'
-import CreateEvent from './pages/CreateEvent'
 import SearchResults from './pages/SearchResults'
-import Cart from './pages/Cart';
+import Favorites from './pages/Favorites';
 
 
 const App = () => {
-  const history = useHistory()
   const [artists, setArtists] = useState([])
-  const [artistsUpdated, toggleArtists] = useState(false)
-  const [events, setEvents] = useState([])
-  const [eventsUpdated, toggleEvents] = useState(false)
-  const [searchQuery, setSearchQuery] = useState('')
-  const [searchResults, setSearchResults] = useState([])
-  const [cartItems, updateCart] = useState([])
-  const [itemsUpdated, toggleItems] = useState(false)
-  const [itemDeleted, toggleDeleted] = useState(false)
+  const [filterQuery, setFilterQuery] = useState('')
+  const [windowDimension, detectHW] = useState({
+    winWidth: window.innerWidth,
+    winHeight: window.innerHeight,
+  })
+  
+  const detectSize = useCallback (() => {
+    detectHW({
+      winWidth: window.innerWidth,
+      winHeight: window.innerHeight,
+    })
+  }, [])
 
-//main data Getters
-  //getEvents
-  const getEvents = async() => {
+
+  const getArtists = useCallback(async() => {
     try {
-      const res = await axios.get(`${BASE_URL}/events`)
-      setEvents(res.data)
-      toggleEvents(false)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  //getArtists
-  const getArtists = async() => {
-    try {
-      const res = await axios.get(`${BASE_URL}/artists`)
+      const res = await Axios.get(`${BASE_URL}/artists`)
       setArtists(res.data)
-      toggleArtists(false)
     } catch (error) {
-      console.log(error)
+      throw(error)
     }
-  }
-  //getItems
-  const getItems = async() => {
-    try {
-      const res = await axios.get(`${BASE_URL}/cart`)
-      updateCart(res.data)
-      toggleItems(false)
-      toggleDeleted(false)
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  }, [])
 
-  useEffect(() => {
-    getEvents()
-  }, [eventsUpdated])
 
   useEffect(() => {
     getArtists()    
-  }, [artistsUpdated])
+  }, [getArtists])
 
   useEffect(() => {
-    getItems()
-  }, [itemsUpdated, itemDeleted])
-
-
-//handles submit of searchQuery
-  const getSearchResults = async (e) => {
-    try {
-      e.preventDefault()
-      const res = await axios.get(`${BASE_URL}/artists/search/${searchQuery}`)
-      setSearchResults(res.data)
-      setSearchQuery('')
-      history.push('/artists/search_results')
-    } catch (err) {
-      console.log(err)
-    }
-  }
-  //handles changes to search input field
-  const handleChange = (e) => {
-    setSearchQuery(e.target.value)
-  }
+      window.addEventListener('resize', detectSize)
+      return () => {
+        window.removeEventListener('resize', detectSize)
+      }
+  }, [detectSize, windowDimension])
+  
 
   return (
       <div className="App">
-        <Header onChange={handleChange} onSubmit={getSearchResults} value={searchQuery} />
+        <Header setFilterQuery={setFilterQuery} winWidth={windowDimension.winWidth}/> 
         <main>
-          <Switch>
-            <Route exact path='/' component={() => <Homepage artists={artists} />} />
-            <Route exact path='/events' component={() => <EventsList events={events} toggleItems={toggleItems} eventsUpdated={eventsUpdated} />} />
-            <Route exact path='/artists' component={() => <ArtistsList artists={artists} />} />
-            <Route exact path='/cart' component={() => <Cart cartItems={cartItems} toggleDeleted={toggleDeleted}/>} />
-            <Route exact path='/events/new' component={() => <CreateEvent toggleEvents={toggleEvents}/>} />
-            <Route exact path='/artists/new' component={() => <CreateArtist toggleArtists={toggleArtists} />} />
-            <Route exact path='/artists/search_results' component={() => <SearchResults searchResults={searchResults} />} />
+          <Routes>
+            <Route exact path='/' element={<Homepage artists={artists} />} />
+            <Route exact path='/artists' element={<ArtistsList artists={artists} />} />
+            <Route exact path='/favorites' element={<Favorites Axios={Axios} BASE_URL={BASE_URL} winWidth={windowDimension.winWidth}/>} />
+            <Route exact path='/artists/new' element={<CreateArtist />} />
+            <Route exact path='/artists/search_results' element={<SearchResults artists={artists} filterQuery={filterQuery} />} />
             {
               artists.map(artist => (
-                <Route path={`/artists/${artist._id}`} component={() => <ArtistPage artist={artist} toggleItems={toggleItems} eventsUpdated={eventsUpdated} />} />
+                <Route path={`/artists/${artist._id}`} element={<ArtistPage artist={artist} winWidth={windowDimension.winWidth}/>} />
               )
               )}
-          </Switch>
+          </Routes>
         </main>
       </div>
   )

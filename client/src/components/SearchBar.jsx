@@ -1,23 +1,30 @@
-import React from 'react'
-import { Input, Button } from 'react-rainbow-components'
-import { FaSistrix } from 'react-icons/fa'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { MdSearch } from "react-icons/md";
 
-const SearchBar = ({onChange, onSubmit, value}) => {
-  const inputStyles = {
-    width: 700,
-  };
+const SearchBar = ({ setFilterQuery, winWidth}) => {
+  const navigate = useNavigate()
+  const [searchQuery, setSearchQuery] = useState('')
 
-  const buttonStyles = {
-    width: 100,
+  const handleQuerySubmit = async (e) => {
+    await e
+    e.preventDefault()
+    navigate('/artists/search_results')
+    setSearchQuery('')
+  }
+
+  const handleChange = (e) => {
+    setSearchQuery(e.target.value)
+    setFilterQuery(e.target.value)
   }
 
   return (
-    <div className='search-bar'>
-      <form onSubmit={(e) => onSubmit(e)} className='search-form'>
-        <Input onChange={(e) => onChange(e)} value={value} className='search-input' type="text" placeholder="Enter artist's name" icon={<FaSistrix />} style={inputStyles}/>
-        <Button className='search-button' type='submit' style={buttonStyles}>Search</Button>
-      </form>
-    </div>
+    <form onSubmit={(e) => handleQuerySubmit(e)} className='search-bar'>
+      <input onChange={(e) => handleChange(e)} value={searchQuery} className='search-input' type="search" placeholder="Search artist" />
+      <button className='search-button' type='submit' disabled={searchQuery ? false : true}>
+        <MdSearch color="white" className='i' />
+      </button>
+    </form>
   )
 }
 

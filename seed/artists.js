@@ -252,73 +252,73 @@ const createArtists = async () => {
       name: `Boots To The Moon`,
       description: faker.lorem.paragraph(),
       genre: "rock",
-      image: faker.internet.avatar()
+      image: faker.image.nightlife()
     },
     {
       name: `My Morning Jacket`,
       description: "My Morning Jacket is an American rock band formed in Louisville, Kentucky in 1998. The band consists of vocalist/guitarist Jim James, bassist Tom Blankenship, drummer Patrick Hallahan, guitarist Carl Broemel, and keyboardist Bo Koster. The band's sound, rooted in rock and country, is often experimental and psychedelic. The group amassed a following beginning in the 2000s in part due to their live performances.",
       genre: "rock",
-      image: faker.internet.avatar()
+      image: faker.image.nightlife()
     },
     {
       name: `MF Doom`,
       description: "Daniel Dumile, best known by his stage name MF Doom or simply Doom (both stylized in all caps), was a British-American rapper and record producer. Noted for his intricate wordplay, signature metal mask, and supervillain stage persona, Dumile became a major figure of underground hip hop and alternative hip hop in the 2000s.After his death, Variety described him as one of the scene's most celebrated, unpredictable and enigmatic figures.",
       genre: "hip hop",
-      image: faker.internet.avatar()
+      image: faker.image.nightlife()
     },
     {
       name: `Nas`,
       description: "Nasir bin Olu Dara Jones (born September 14, 1973), better known by his stage name Nas, is an American rapper, songwriter, and entrepreneur. Rooted in the New York hip hop scene, he is regarded as one of the greatest and most influential rappers of all time. Nas has released twelve studio albums since 1994, seven of which are certified platinum and multi-platinum in the U.S.",
       genre: "hip hop",
-      image: faker.internet.avatar()
+      image: faker.image.nightlife()
     },
     {
       name: `The Popstars`,
       description: "The Popstars recently burst into the pop scene with their pop single: pop. They just won't stop popping pops",
       genre: "pop",
-      image: faker.internet.avatar()
+      image: faker.image.nightlife()
     },
     {
       name: `Pop People`,
       description: "The Pop People recently burst into the pop scene with their pop single: pop. Yo pophead, I heard you like pop, so I popped some pop while popping some pops along the poppy",
       genre: "pop",
-      image: faker.internet.avatar()
+      image: faker.image.nightlife()
     },
     {
       name: `Boots To The Moon`,
       description: faker.lorem.paragraph(),
       genre: "rock",
-      image: faker.internet.avatar()
+      image: faker.image.nightlife()
     },
     {
       name: `My Morning Jacket`,
       description: "My Morning Jacket is an American rock band formed in Louisville, Kentucky in 1998. The band consists of vocalist/guitarist Jim James, bassist Tom Blankenship, drummer Patrick Hallahan, guitarist Carl Broemel, and keyboardist Bo Koster. The band's sound, rooted in rock and country, is often experimental and psychedelic. The group amassed a following beginning in the 2000s in part due to their live performances.",
       genre: "rock",
-      image: faker.internet.avatar()
+      image: faker.image.nightlife()
     },
     {
       name: `MF Doom`,
       description: "Daniel Dumile, best known by his stage name MF Doom or simply Doom (both stylized in all caps), was a British-American rapper and record producer. Noted for his intricate wordplay, signature metal mask, and supervillain stage persona, Dumile became a major figure of underground hip hop and alternative hip hop in the 2000s.After his death, Variety described him as one of the scene's most celebrated, unpredictable and enigmatic figures.",
       genre: "hip hop",
-      image: faker.internet.avatar()
+      image: faker.image.nightlife()
     },
     {
       name: `Nas`,
       description: "Nasir bin Olu Dara Jones (born September 14, 1973), better known by his stage name Nas, is an American rapper, songwriter, and entrepreneur. Rooted in the New York hip hop scene, he is regarded as one of the greatest and most influential rappers of all time. Nas has released twelve studio albums since 1994, seven of which are certified platinum and multi-platinum in the U.S.",
       genre: "hip hop",
-      image: faker.internet.avatar()
+      image: faker.image.nightlife()
     },
     {
       name: `The Popstars`,
       description: faker.lorem.paragraph(),
       genre: "pop",
-      image: faker.internet.avatar()
+      image: faker.image.nightlife()
     },
     {
       name: `Pop People`,
       description: faker.lorem.paragraph(),
       genre: "pop",
-      image: faker.internet.avatar()
+      image: faker.image.nightlife()
     }
   ]
   await Artist.insertMany(artists)

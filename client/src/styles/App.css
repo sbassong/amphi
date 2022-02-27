@@ -1,0 +1,501 @@
+
+html {
+  background: #49404c no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  font-weight: bold;
+}
+
+h3 {
+  color: white;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+/* HEADER STYLES */
+header {
+  top: 0;
+  z-index: 20;
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  position: sticky;
+  padding: .7vh .7vw;
+  align-items: center;
+  background-color: #280839;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 4vh;
+  color: White;
+  margin: auto 2vw;
+  font-variant: small-caps;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.search-bar {
+  width: 40%;
+  display: flex;
+  margin: auto 2vw;
+}
+
+.search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #280839;
+  text-align: left;
+  padding: .5vh 1vh;
+  border-radius: .5vh 0 0 .5vh;
+}
+
+.search-input:focus{
+  color: #280839;
+}
+
+.search-button {
+  width: 4vh;
+  height: 4vh;
+  outline: none;
+  padding: .5vh;
+  font-size: 2vh;
+  cursor: pointer;
+  text-align: center;
+  background: #49404c;
+  border-radius: 0 .5vh .5vh 0;
+  border: .2vh solid #49404c;
+}
+
+.nav {
+  display: flex;
+  font-size: 2vh;
+  align-items: center;
+}
+
+.nav > a {
+  color: white;
+  margin: auto 1vw;
+  font-weight: bold;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+
+/* HOMEPAGE + ARTIST + SEARCHRESULTS PAGE STYLES*/
+.homepage {
+  width: 100%;
+}
+
+.featured-section {
+  width: 90%;
+  margin: 2vmax auto;
+}
+
+.left-h1 {
+  color: white;
+  font-size: clamp( .8em, 1.5vw, 2em);
+  margin: 2em auto 1em auto;
+  width: 100%
+}
+
+.featured, .artist-container {
+  width: 100%;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, 20vw);
+  justify-content: center;
+  margin-top: 3vmin
+}
+
+.artist-container {
+  width: 90%;
+  margin-top: 5vmin;
+}
+
+@media screen and (max-width: 768px) {
+  .featured, .artist-container {
+    grid-template-columns: repeat(auto-fit, 26vw);
+  }
+
+  .card-3 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .featured, .artist-container {
+    grid-template-columns: repeat(auto-fit, 35vw);
+  }
+
+  .card-3, .card-2 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .featured, .artist-container {
+    grid-template-columns: repeat(auto-fit, 70vw);
+  }
+  
+  .card-3, .card-2, .card-1 {
+    display: none;
+  }
+}
+
+.feat-card-wrap {
+  height: 100%;
+  width: auto;
+  border-radius: .5em;
+}
+
+.feat-card-wrap > * {
+  position: relative;
+  z-index: 2;
+}
+
+.featured-card {
+  box-sizing: border-box;
+  height: 10em;
+  width: 100%;
+  border-radius: .5em;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  
+  transition: background-size 0.25s ease-in-out 0s, filter 80ms linear 0s;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media screen and (max-width: 768px) {
+  .featured-card {
+    height: 8em;
+  }
+}
+@media screen and (max-width: 480px) {
+  .featured-card {
+    height: 7.5em;
+  }
+}
+
+.featured-card:hover {
+  background-size: 110%;
+}
+
+.card-info {
+  height: auto;
+  line-height: 1.5;
+  color: white;
+  background-color: rgba(0, 0, 0, .6);
+  width: fit-content;
+  padding: 1vmin;
+  border-radius: .5em;
+  position: absolute;
+  bottom: .5em;
+  left: .5em;
+  font-size: clamp( .7em, 1.2vw, 1em)
+}
+
+
+/* EVENTS + FAVORITES STYLES */
+
+.events-cont {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.event-list {
+  display: flex;
+  width: 100%;
+  margin: 1em auto;
+  padding: 1em .8em;
+  justify-content: space-between;
+  background-color: rgba(204, 147, 229, 0.3);
+  border-radius: .3em;
+}
+
+.e-sec-1 {
+  padding: auto .5em;
+  flex-basis: 75%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: .5em;
+}
+
+.e-sec-2 {
+  padding: auto .5em;
+  flex-basis: 25%;
+  margin-right: .5em;
+}
+
+@media screen and (max-width: 600px) {
+  .e-sec-1 {
+    flex-basis: 100%;
+  }
+}
+
+.e-name-wrap {
+  margin-right: .5em;
+  flex-basis: 75%;
+}
+
+.e-but-wrap {
+  margin-left: .5em;
+  flex-basis: 25%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.e-add-but {
+  padding: .5em;
+  background: rgba(255, 255, 255, 0.7);
+	color: #280839;
+	border: none;
+	font: inherit;
+	cursor: pointer;
+  border-radius: .3em ;
+  margin-right: .5em;
+  font-size: clamp( .7em, 1.1vw, 1.5em);
+  font-variant: small-caps;
+  width: 100%;
+  flex-basis: 80%;
+}
+
+.e-fav-but {
+  padding: .5em;
+  background: rgba(255, 255, 255, 0.7);
+	color: #280839;
+	border: none;
+	font: inherit;
+	cursor: pointer;
+  border-radius: .3em ;
+  margin-right: .5em;
+  font-size: clamp( .7em, 1.1vw, 1.5em);
+  width: 100%;
+  flex-basis: 20%;
+}
+
+.p-name {
+  color: white;
+  font-size: clamp( .8em, 1.3vw, 1.8em);
+  font-variant: small-caps;
+  font-weight: bold;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.p-loc {
+  color: rgba(218, 209, 224);
+  font-variant: small-caps;
+  font-size: clamp( .5em, .9vw, 1.3em);
+}
+
+.p-time {
+  color: rgba(218, 209, 224);
+  font-size: clamp( .5em, .9vw, 1.3em);
+}
+
+.p-date {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: clamp( .7em, 1.1vw, 1.5em);
+  color: rgba(218, 209, 224);
+}
+
+.upcoming-e {
+  width: 80%;
+}
+
+
+/* ARTIST SECTION STYLES */
+.artist-page, .cart {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 5vmin;
+}
+
+.artist-section {
+  margin: auto;
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  padding: 2em;
+  background-color: white;
+  border-radius: .5em;
+}
+
+.poster-wrap {
+  flex-basis: 50%;
+  padding-right: .5em;
+  width: 100%;
+  height: auto;
+}
+
+.artist-poster-img {
+  width: 100%;
+  height: auto;
+  border-radius: .5em;
+}
+
+.artist-description {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  flex-basis: 50%;
+  font-size: clamp( .7em, 1.2vw, 1em);
+  color: #280839
+}
+
+.artist-name-p {
+  padding: 1em auto 1em 1em;
+  font-size: clamp( 1em, 1.5vw, 2em);
+  margin-bottom: 1vmin;
+}
+
+@media screen and (max-width: 600px) {
+  .artist-section {
+    flex-direction: column;
+  }
+}
+
+/* CREATE ARTIST PAGE */
+#register-artist {
+  display: flex;
+  width: 100%;
+  padding-top: 2vmin;
+  flex-direction: column;
+  align-items: center;
+}
+
+#register-artist >p {
+  width: 85%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.form-container {
+  width: 35%;
+  margin: 3vmin auto auto auto;
+}
+@media screen and (max-width: 800px) {
+  .form-container {
+    width: 65%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .form-container {
+    width: 80%;
+  }
+}
+
+.form-container form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-container form div{
+  margin: 1.5vh auto;
+  width: 85%;
+  text-align: left;
+}
+
+.form-container form label{
+  font-size: 1.5vh;
+  color: rgb(239, 233, 233);
+}
+
+.input{
+  margin-top: .5vh;
+  text-align: left;
+  height: 3.5vh;
+  border-radius: .5vh;
+  background: rgba(249, 243, 243, 0.5);
+  outline-style: none;
+  padding-top: .7vh;
+}
+
+textarea {
+  margin-top: .5vh;
+  text-align: left;
+  height: 20vh;
+  border-radius: .5vh;
+  background: rgba(249, 243, 243, 0.5);
+  resize: none;
+}
+
+.input,textarea {
+  width: 100%;
+  font-size: 1.5vh;
+  color: #280839;
+}
+
+
+textarea:focus {
+  outline-style: solid;
+  outline-color: #280839;
+  outline-width: .2vh;
+}
+
+
+.submit-art-but {
+  width: 85%;
+  margin: auto;
+  padding: .9vh;
+  font-size: 1.5vh;
+  color: white;
+  border-radius: .5vh;
+  background: transparent;
+  border-style: solid;
+  font-weight: bold;
+}
+
+.submit-art-but:hover {
+  box-shadow: 0 0 .5vh #280839;
+  background-color: rgba(68, 10, 99, 0.5);
+}
+
+@media screen and (max-width: 600px) {
+  .form-container form div {
+    width: 100%;
+  }
+  .submit-art-but {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+

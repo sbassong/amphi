@@ -133,7 +133,7 @@ header {
 
 .artist-container {
   width: 90%;
-  margin-top: 5vmin;
+  margin: 5vmin auto auto auto
 }
 
 @media screen and (max-width: 768px) {

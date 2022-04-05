@@ -7,6 +7,15 @@ html {
   background-size: cover;
 }
 
+html::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;  
+}
+
 * {
   margin: 0;
   padding: 0;

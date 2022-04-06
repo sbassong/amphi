@@ -28,6 +28,10 @@ html {
   height: 100vh;
 }
 
+main > div {
+  padding-bottom: 2em
+}
+
 a {
   text-decoration: none;
 }
@@ -117,6 +121,7 @@ header {
 /* HOMEPAGE + ARTIST + SEARCHRESULTS PAGE STYLES*/
 .homepage {
   width: 100%;
+  padding-bottom: 2em
 }
 
 .featured-section {
@@ -142,7 +147,9 @@ header {
 
 .artist-container {
   width: 90%;
-  margin: 5vmin auto auto auto
+  margin: 5vmin auto auto auto;
+  padding-bottom: 2em
+
 }
 
 @media screen and (max-width: 768px) {

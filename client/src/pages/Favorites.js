@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import Axios from 'axios'
 import { BASE_URL } from '../globals'
 import FavoriteLargeMarkup from '../components/FavoriteLargeMarkup'

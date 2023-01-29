@@ -1,3 +1,4 @@
+import React from 'react'
 import FeaturedSection from '../components/FeaturedSection'
 
 const Homepage = ({artists}) => {

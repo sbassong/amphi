@@ -1,3 +1,4 @@
+import React from 'react'
 import FeaturedCard from './FeaturedCard'
 
 const FeaturedSection = ({artists, category}) => {

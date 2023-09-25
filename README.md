@@ -14,15 +14,14 @@
 
 - [MongoDB](https://www.mongodb.com/) - Document-oriented database
 - [Express.js](https://expressjs.com/) - Web framework for Node.js
-- [React](https://reactjs.org/) - (Best) Frontend JS library
+- [React](https://reactjs.org/) (bootstrapped with [Create-react-app](https://create-react-app.dev/))
 - [Node.js](https://nodejs.org/en/) - JS runtime
 - [Heroku](https://www.heroku.com/home) - Deployment host
-- [React-icons](https://react-icons.github.io/react-icons/) - library of react icons
 
 ***
 
 ## **_Local Environment Requirements_**
-Node, npm, and MongoDB are necessary to run this application. If needed, please follow the installation guidelines in the  **[Env-requirements section](#env-requirements)** section.
+Node, npm, and MongoDB are necessary to run this application. Please follow the installation guidelines in the **[Env-requirements section](#env-requirements)** section if needed.
 
 ## **_Getting Started_**
  Once the requirements are met, we're ready to run the application. Follow the steps below to set up and launch the application server.

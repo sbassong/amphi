@@ -12,11 +12,13 @@ const addItem = async (req, res) => {
 }
 
 //deleteItem
-const deleteItem = (req, res) => {
-  Item.deleteOne({_id: req.params.id}, (err) => {
-    if (err) console.log(err)
-    console.log('successfully deleted item from cart!')
-  })
+const deleteItem = async (req, res) => {
+  try {
+    const item = await Item.deleteOne({_id: req.params.id})
+    console.log(item)
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 //getItems

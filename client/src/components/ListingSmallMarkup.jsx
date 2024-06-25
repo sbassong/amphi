@@ -44,7 +44,7 @@ const ListingSmallMarkup = ({ id, artist, date, time, venue, location, name }) =
         </div>
 
         <div className='e-but-wrap'>
-          <button onClick='' className='e-add-but' label='Add to cart' size='small'>Find tickets</button>
+          <div className='e-add-but' label='Add to cart' size='small'>Find tickets</div>
           {
             favorited
               ? <button onClick={() => unlikeEvent()} className='e-fav-but' label='Add to cart' ><MdFavorite /></button>

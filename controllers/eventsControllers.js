@@ -11,11 +11,12 @@ const createEvent = async (req, res) => {
   }
 }
 
-const deleteEvent = (req, res) => {
-  Event.deleteOne({_id: req.params.id}, (err) => {
-    if (err) console.log(err)
-    console.log('successfully deleted event!')
-  })
+const deleteEvent = async (req, res) => {
+  try {
+    const event = await Event.deleteOne({_id: req.params.id})
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 //getEvents

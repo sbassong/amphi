@@ -14,7 +14,7 @@ const FavoriteSmallMarkup = ({ unlikeEv, date, time, venue, location, name }) =>
         </div>
 
         <div className='e-but-wrap'>
-          <button onClick='' className='e-add-but' label='Add to cart' size='small'>Find tickets</button>
+          <div className='e-add-but' label='Add to cart' size='small'>Find tickets</div>
           <button onClick={unlikeEv} className='e-fav-but' label='Add to cart' ><MdFavorite /></button>
         </div>
       </section>

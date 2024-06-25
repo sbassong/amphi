@@ -12,11 +12,12 @@ const createArtist = async (req, res) => {
 }
 
 //deleteArtist by id
-const deleteArtist = (req, res) => {
-  Artist.deleteOne({_id: req.params.id}, (err) => {
-    if (err) console.log(err)
-    console.log('successfully deleted artist!')
-  })
+const deleteArtist = async (req, res) => {
+  try {
+    const artist = await Artist.deleteOne({_id: req.params.id})
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 //getArtists
